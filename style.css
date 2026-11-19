@@ -476,7 +476,7 @@ kbd { font: 600 12px var(--sans); background: #fff; border: 1px solid var(--line
 /* orel v pohledu shora: tři vrstvy stejné velikosti, ramena leží na vodorovné ose obrázku */
 #eagle {
   position: fixed; left: 0; top: 0; z-index: 2550; pointer-events: none; will-change: transform;
-  /* stín na zemi pod orlem – posunutý a rozmazaný, sleduje i mávání křídel */
+  /* stín na zemi pod orlem (směr a velikost nastaví app.js podle letu) */
   filter: drop-shadow(70px 90px 22px rgba(40, 26, 10, .28));
 }
 #eagle .eagle-inner { position: absolute; inset: 0; will-change: transform; }
@@ -488,6 +488,11 @@ kbd { font: 600 12px var(--sans); background: #fff; border: 1px solid var(--line
 #intro.wipe {
   -webkit-mask-image: linear-gradient(to right, transparent 0, transparent calc(var(--edge, -400px) - 140px), #000 calc(var(--edge, -400px) + 30px));
   mask-image: linear-gradient(to right, transparent 0, transparent calc(var(--edge, -400px) - 140px), #000 calc(var(--edge, -400px) + 30px));
+}
+/* na výšku letí orel zdola nahoru – odkrývá se odspodu (--edge = vzdálenost orla od spodního okraje) */
+#intro.wipe-up {
+  -webkit-mask-image: linear-gradient(to top, transparent 0, transparent calc(var(--edge, -400px) - 140px), #000 calc(var(--edge, -400px) + 30px));
+  mask-image: linear-gradient(to top, transparent 0, transparent calc(var(--edge, -400px) - 140px), #000 calc(var(--edge, -400px) + 30px));
 }
 /* tlačítko hudby vedle přepínače jazyka */
 #music { top: 12px; right: 84px; padding: 0; z-index: 2600; }

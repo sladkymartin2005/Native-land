@@ -1216,48 +1216,94 @@
     // Safari pustí zvuk jen při kliknutí – hudbu proto spustíme hned (potichu) a nahlas až po přeletu
     if (musicOn) { music.volume = 0; music.play().catch(() => {}); }
     const reveal = () => { intro.classList.add('fade'); setTimeout(() => { intro.hidden = true; startMusic(); afterIntro(); }, 1400); };
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { reveal(); return; }
+    // orel letí i při „Omezit pohyb“ – je to jediná animace úvodu a uživatel si ji výslovně přeje
     const imgs = [...$('eagle').querySelectorAll('img')];
     const ready = () => imgs.every((im) => im.complete && im.naturalWidth);
     const start = () => flyEagle($('eagle'), imgs[2].naturalWidth / imgs[2].naturalHeight, reveal);
     if (ready()) start();
     else Promise.all(imgs.map((im) => (im.complete ? 0 : new Promise((r) => { im.onload = r; im.onerror = r; })))).then(() => (ready() ? start() : reveal()));
   });
-  // Průlet nad krajinou (pohled shora): orel letí zleva doprava, rozpětí křídel přes skoro celou výšku okna.
-  // Během průletu zakřičí a béžové pozadí se rozplyne – objeví se mapa.
+  // Průlet nad krajinou (pohled shora). Na šířku letí orel zleva doprava, na výšku (mobil) zdola nahoru
+  // přes celou šířku displeje. Pohyb se počítá v každém snímku: mávání ve dvou sériích s plachtěním mezi nimi,
+  // zrychlení při záběru, náklon v zatáčkách (vnější křídlo delší) a béžová vrstva se odkrývá přesně za ním.
   function flyEagle(el, ratio, reveal) {
-    const W = innerWidth, H = innerHeight;
-    const eh = H * 0.9, ew = eh * ratio;                    // výška obrázku = rozpětí křídel
+    const W = innerWidth, H = innerHeight, portrait = H > W * 1.15;
+    const eh = portrait ? Math.min(W * 1.08, H * 0.75) : H * 0.9;   // výška obrázku = rozpětí křídel
+    const ew = eh * ratio;
     el.style.height = eh + 'px'; el.style.width = ew + 'px';
-    el.hidden = false;
-    const DUR = 5200;
-    const at = (k) => [-ew * 0.8 + (W + ew * 1.6) * k, H * (0.52 - 0.06 * k) + Math.sin(k * Math.PI * 1.6) * H * 0.05];
-    const frames = [];
-    for (let n = 0; n <= 40; n++) {
-      const k = n / 40, [x, y] = at(k), [x2, y2] = at(Math.min(1, k + 0.01)), [x1, y1] = at(Math.max(0, k - 0.01));
-      const heading = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;   // natočení po směru letu
-      const s = 0.9 + 0.1 * Math.sin(k * Math.PI);                       // uprostřed o kousek blíž
-      frames.push({ offset: k, transform: `translate(${(x - ew / 2).toFixed(1)}px, ${(y - eh / 2).toFixed(1)}px) rotate(${heading.toFixed(2)}deg) scale(${s.toFixed(3)})` });
-    }
-    const anim = el.animate(frames, { duration: DUR, easing: 'linear', fill: 'forwards' });
-    flapWings(el, DUR);
-    // dvojí výkřik s ozvěnou (~5 s): první zazní, když orel přilétá, druhý uprostřed průletu
-    setTimeout(() => { cry.currentTime = 0; cry.play().catch(() => {}); }, DUR * 0.15);
-    // orel za sebou „vytahuje“ mapu: béžová vrstva se odkrývá zleva přesně za ním
-    const intro = $('intro');
-    intro.classList.add('wipe');
-    const wipe = () => {
-      const k = Math.min(1, (anim.currentTime || 0) / DUR);
-      intro.style.setProperty('--edge', (at(k)[0] - ew * 0.15).toFixed(0) + 'px');
-      if (k < 1 && anim.playState !== 'finished') requestAnimationFrame(wipe);
+    const DUR = portrait ? 6000 : 5600;
+    const BEAT = 520;                                          // ms na úder (orel bělohlavý ~2 údery/s)
+    const SERIES = [[0.02, 4], [0.56, 3]];                     // [začátek jako podíl letu, počet úderů]
+    // dráha jako funkce uražené vzdálenosti d (0–1)
+    const path = portrait
+      ? (d) => [W * (0.46 + 0.08 * d) + Math.sin(d * Math.PI * 1.5) * W * 0.07, H + ew * 0.8 - (H + ew * 1.6) * d]
+      : (d) => [-ew * 0.8 + (W + ew * 1.6) * d, H * (0.52 - 0.06 * d) + Math.sin(d * Math.PI * 1.6) * H * 0.05];
+    // síla mávání v čase t (0–1): 0 = plachtění; obálka změkčí začátek a konec série
+    const flapAt = (t) => {
+      for (const [t0, n] of SERIES) {
+        const len = n * BEAT / DUR;
+        if (t >= t0 && t < t0 + len) {
+          const q = (t - t0) / len, env = Math.min(1, q * 6, (1 - q) * 6);
+          const p = ((t - t0) * DUR / BEAT) % 1;                 // fáze úderu: zdvih je pomalejší (58 %) než záběr
+          const w = p < 0.58 ? -Math.cos(p / 0.58 * Math.PI) : Math.cos((p - 0.58) / 0.42 * Math.PI);
+          return { w: w * env, env, down: p >= 0.58 };
+        }
+      }
+      return { w: 0, env: 0, down: false };
     };
-    requestAnimationFrame(wipe);
-    anim.onfinish = () => {
-      el.hidden = true; el.getAnimations({ subtree: true }).forEach((x) => x.cancel());
-      intro.hidden = true; intro.classList.remove('wipe');
+    // rychlost: při mávání o čtvrtinu vyšší, v plachtění pomalu klesá → předpočítaná uražená vzdálenost
+    const N = 400, dist = [0];
+    for (let n = 1; n <= N; n++) { const f = flapAt(n / N); dist.push(dist[n - 1] + 1 + 0.25 * f.env + (f.down ? 0.12 : 0)); }
+    const distAt = (t) => { const x = Math.min(N, Math.max(0, t * N)), a = Math.floor(x), b = Math.min(N, a + 1); return (dist[a] + (dist[b] - dist[a]) * (x - a)) / dist[N]; };
+    const headingAt = (d) => { const [x1, y1] = path(Math.max(0, d - 0.004)), [x2, y2] = path(Math.min(1, d + 0.004)); return Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI; };
+    // stín na zemi: dopadá stále stejným směrem (vpravo dolů), i když je orel natočený
+    const h0 = headingAt(0.5) * Math.PI / 180, sx = 70 * eh / 720, sy = 90 * eh / 720;
+    el.style.filter = `drop-shadow(${(sx * Math.cos(h0) + sy * Math.sin(h0)).toFixed(0)}px ${(-sx * Math.sin(h0) + sy * Math.cos(h0)).toFixed(0)}px ${(22 * eh / 720).toFixed(0)}px rgba(40, 26, 10, .28))`;
+    const inner = el.querySelector('.eagle-inner'), wUp = el.querySelector('.e-up'), wDown = el.querySelector('.e-down');
+    wUp.style.transformOrigin = '62% 53%'; wDown.style.transformOrigin = '62% 47%';   // ramenní klouby
+    el.hidden = false;
+    // dvojí výkřik s ozvěnou (~5 s): první zazní, když orel přilétá
+    setTimeout(() => { cry.currentTime = 0; cry.play().catch(() => {}); }, DUR * 0.15);
+    const intro = $('intro');
+    intro.classList.add(portrait ? 'wipe-up' : 'wipe');
+    let bank = 0, prevH = headingAt(0), t0 = null, done = false;
+    const frame = (now) => {
+      if (done) return;
+      if (t0 === null) t0 = now;
+      const t = Math.min(1, (now - t0) / DUR), d = distAt(t);
+      const [x, y] = path(d), heading = headingAt(d);
+      // náklon podle zakřivení dráhy (setrvačně vyhlazený), ±1
+      const turn = (heading - prevH) * 60; prevH = heading;
+      bank += (Math.max(-1, Math.min(1, turn * 0.9)) - bank) * 0.08;
+      const { w } = flapAt(t);
+      const glide = 0.03 * Math.sin(t * DUR / 900);           // drobné chvění křídel v plachtění
+      const s = 0.9 + 0.1 * Math.sin(d * Math.PI);             // uprostřed o kousek blíž
+      el.style.transform = `translate(${(x - ew / 2).toFixed(1)}px, ${(y - eh / 2).toFixed(1)}px) rotate(${heading.toFixed(2)}deg) scale(${s.toFixed(3)})`;
+      // křídlo: rozpětí se zkracuje nahoře i dole (míří k nám / od nás), při zdvihu se navíc přitahuje k tělu
+      // a stáčí dozadu, při záběru se natahuje dopředu; vnější křídlo v zatáčce je delší
+      const wing = (side) => {
+        const lift = w + glide;
+        const span = (1 - 0.34 * Math.abs(lift) - (lift > 0 ? 0.08 * lift : 0)) * (1 + 0.1 * bank * side);
+        const chord = 1 + 0.06 * lift;
+        const sweep = (lift > 0 ? -9 * lift : 5 * -lift) * side;
+        return `rotate(${sweep.toFixed(2)}deg) scale(${chord.toFixed(3)}, ${span.toFixed(3)})`;
+      };
+      wUp.style.transform = wing(1); wDown.style.transform = wing(-1);
+      inner.style.transform = `scale(${(1 - 0.025 * w).toFixed(3)})`;   // při záběru se orel zvedne – je blíž
+      // béžová vrstva se odkrývá za orlem
+      if (portrait) intro.style.setProperty('--edge', (H - (y + ew * 0.15)).toFixed(0) + 'px');
+      else intro.style.setProperty('--edge', (x - ew * 0.15).toFixed(0) + 'px');
+      if (t < 1) requestAnimationFrame(frame); else finish();
+    };
+    const finish = () => {
+      if (done) return; done = true;
+      el.hidden = true;
+      intro.hidden = true; intro.classList.remove('wipe', 'wipe-up');
       startMusic();
       afterIntro();
     };
+    requestAnimationFrame(frame);
+    setTimeout(finish, DUR + 1500);                            // pojistka, kdyby prohlížeč snímky pozastavil
   }
   // po úvodu: časová osa od roku 1000 se sama rozběhne
   function afterIntro() {
@@ -1267,27 +1313,6 @@
     if (store.get('tourSeen') !== '1') { setTimeout(() => startTour({ first: true, then: go }), 700); return; }
     go();
   }
-  // Mávání při pohledu shora: při zdvihu i záběru se křídla zkracují (míří k nám / od nás).
-  // Zdvih je pomalejší, záběr dolů rychlý a při něm se orel zvedne (je o kousek blíž = větší).
-  function flapWings(el, DUR) {
-    const BEAT = 520;                                       // ms na úder (orel bělohlavý ~2 údery/s)
-    const series = [[0.0, 4], [0.55, 3]];                   // [začátek jako podíl letu, počet úderů]
-    const pts = [[0, 0]];                                   // [čas 0–1, poloha: 1 nahoře, -1 dole, 0 plachtění]
-    series.forEach(([t0, n]) => {
-      const b = BEAT / DUR;
-      pts.push([t0, 0]);
-      for (let i = 0; i < n; i++) { const t = t0 + i * b; pts.push([t + b * 0.25, 1], [t + b * 0.5, 0], [t + b * 0.72, -1]); }
-      pts.push([t0 + n * b + b * 0.3, 0]);
-    });
-    pts.push([1, 0]);
-    const uniq = pts.sort((p, q) => p[0] - q[0]).filter((p, i, arr) => i === 0 || p[0] > arr[i - 1][0] + 1e-4);
-    const opt = { duration: DUR, easing: 'ease-in-out', fill: 'forwards' };
-    // nahoře: křídla zvednutá k nám – kratší rozpětí, širší (blíž); dole: kratší rozpětí, užší (dál)
-    const wingKf = uniq.map(([o, v]) => ({ offset: Math.min(1, o), transform: `scale(${(1 + 0.06 * v).toFixed(3)}, ${(1 - 0.38 * Math.abs(v)).toFixed(3)})` }));
-    el.querySelectorAll('.e-wing').forEach((w) => w.animate(wingKf, opt));
-    el.querySelector('.eagle-inner').animate(uniq.map(([o, v]) => ({ offset: Math.min(1, o), transform: `scale(${(1 - 0.025 * v).toFixed(3)})` })), opt);
-  }
-
   applyLang();
   if (location.hash.length > 1) select(decodeURIComponent(location.hash.slice(1)), { fly: true });
 
