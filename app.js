@@ -1201,10 +1201,25 @@
     // spodek posledního řádku ~2 % pod hřebeny, takže hory zakryjí jen spodní část písmen
     // na mobilu je vidět jen střed fotky s nejvyššími štíty – nápis tam musí výš
     const bottom = top + dispH * (narrow ? 0.205 : 0.24);
-    t.style.setProperty('--fs', fs.toFixed(1) + 'px');
-    t.style.setProperty('--ty', (bottom - lh * (lines - 1) - fs * 0.82).toFixed(1) + 'px');
+    // nápis nesmí zasahovat pod tlačítka nápovědy, hudby a jazyka v rohu: když by byl moc vysoko,
+    // nejdřív se zmenší (spodek zůstane u hřebenů), a když ani to nestačí, posune se o kousek níž
+    const minTop = ['help', 'music', 'lang'].reduce((m, id) => {
+      const el = $(id); if (!el || el.hidden) return m;
+      const r = el.getBoundingClientRect(); return r.height && r.top < H / 2 ? Math.max(m, r.bottom + 12) : m;
+    }, 10);
+    const k = 0.98 * (lines - 1) + 0.82;                   // výška nápisu nad účařím v násobcích fs
+    let size = fs;
+    if (bottom - size * k < minTop) size = Math.max(narrow ? W / 7.8 : W / 11, (bottom - minTop) / k);
+    let ty = Math.max(minTop, bottom - size * 0.98 * (lines - 1) - size * 0.82);
+    // nízké okno na šířku (telefon otočený): nad horami není dost nebe – nápis jde před hory, celý viditelný
+    const front = !narrow && H < 500 && bottom - size * 0.82 < minTop + 4;
+    t.classList.toggle('front', front);
+    if (front) { size = Math.min(W / 11, H * 0.17); ty = Math.max(minTop, H * 0.06); }
+    t.style.setProperty('--fs', size.toFixed(1) + 'px');
+    t.style.setProperty('--ty', ty.toFixed(1) + 'px');
   }
   placeTitle(); addEventListener('resize', placeTitle);
+  document.fonts?.ready.then(placeTitle);   // tlačítka v rohu mají konečnou velikost až s načteným písmem
 
   /* ---------- úvod: přelet orla se zvukem ---------- */
   // Zvuk smí stránka pustit až po kliknutí uživatele – proto úvodní tlačítko.
