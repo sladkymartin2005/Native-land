@@ -15,7 +15,7 @@
   let tour = null;                                   // běžící průvodce pro nové uživatele
   const isTouch = matchMedia('(hover: none)').matches;
   const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* soukromý režim */ } } };
-  const DV = '?v=21';                                // verze dat – po aktualizaci prohlížeč nenačte staré soubory z mezipaměti
+  const DV = '?v=' + (window.APP_V || '21');                                // verze dat – po aktualizaci prohlížeč nenačte staré soubory z mezipaměti
   const getJson = async (url) => { const r = await fetch(url); if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); };
 
   let lang = store.get('lang') === 'en' ? 'en' : 'cs';
@@ -1290,4 +1290,33 @@
 
   applyLang();
   if (location.hash.length > 1) select(decodeURIComponent(location.hash.slice(1)), { fly: true });
+
+  /* ---------- automatická aktualizace ----------
+     Po nahrání nové verze se změní version.json. Aplikace ho hlídá (i když je otevřená z plochy iPhonu)
+     a sama se přenačte – bez úvodu, ve stejném roce a u stejného národa. */
+  const ss = { get(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { sessionStorage.setItem(k, v); } catch (e) { /* nic */ } }, del(k) { try { sessionStorage.removeItem(k); } catch (e) { /* nic */ } } };
+  const resumed = ss.get('nl-update');
+  if (resumed) {
+    ss.del('nl-update');
+    $('intro').hidden = true;
+    if (location.hash.length <= 1 && +resumed) setYear(+resumed, true);
+    toast(esc(T.updated), 3500);
+  }
+  let updating = false;
+  const checkUpdate = () => {
+    if (updating || !window.APP_V) return;
+    fetch('version.json?t=' + Date.now(), { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (!d || !d.v || String(d.v) === String(window.APP_V) || updating) return;
+        updating = true;
+        const busy = !$('intro').hidden;                    // na úvodní obrazovce rovnou, jinak s krátkým upozorněním
+        if (!busy) { ss.set('nl-update', String(state.year)); toast(esc(T.updating), 3000); }
+        setTimeout(() => location.reload(), busy ? 0 : 1500);
+      })
+      .catch(() => {});
+  };
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) checkUpdate(); });
+  addEventListener('pageshow', checkUpdate);
+  setInterval(() => { if (!document.hidden) checkUpdate(); }, 15000);
 })();

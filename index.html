@@ -15,7 +15,12 @@
   <meta name="apple-mobile-web-app-title" content="Native Land">
   <link rel="stylesheet" href="vendor/fonts/cinzel.css">
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
-  <link rel="stylesheet" href="style.css?v=21">
+  <!-- verze: aktuální číslo z version.json (bez mezipaměti), aby se změny projevily hned po nahrání -->
+  <script>
+    window.APP_V = '21';
+    try { var vx = new XMLHttpRequest(); vx.open('GET', 'version.json?t=' + Date.now(), false); vx.send(); if (vx.status === 200) window.APP_V = String(JSON.parse(vx.responseText).v || window.APP_V); } catch (e) { /* offline – výchozí verze */ }
+    document.write('<link rel="stylesheet" href="style.css?v=' + window.APP_V + '">');
+  </script>
 </head>
 <body>
   <aside id="sidebar">
@@ -182,7 +187,6 @@
   </dialog>
 
   <script src="vendor/leaflet/leaflet.js"></script>
-  <script src="i18n.js?v=21"></script>
-  <script src="app.js?v=21"></script>
+  <script>document.write('<script src="i18n.js?v=' + window.APP_V + '"><\/script><script src="app.js?v=' + window.APP_V + '"><\/script>');</script>
 </body>
 </html>
