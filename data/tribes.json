@@ -1,0 +1,831 @@
+{
+"meta": {"title": "Původní národy Severní Ameriky", "version": "1.0", "note": "Polygony jsou přibližné [zeměpisná šířka, délka]. from/to = roky; null u from = před rokem 1000, null u to = dodnes."},
+"families": {
+  "algic": {"name": "Algonkinské", "color": "#3f73c9"},
+  "iroquoian": {"name": "Irokézské", "color": "#7a4fc4"},
+  "siouan": {"name": "Siouxské", "color": "#d9a514"},
+  "muskogean": {"name": "Muskogejské", "color": "#c0392b"},
+  "caddoan": {"name": "Kaddoské", "color": "#9c6b3a"},
+  "utoaztecan": {"name": "Uto-aztécké", "color": "#e0701f"},
+  "nadene": {"name": "Na-dené", "color": "#1e8a6e"},
+  "eskaleut": {"name": "Eskymácko-aleutské", "color": "#3aa7c9"},
+  "pacific": {"name": "Pacifické pobřeží a Plošina", "color": "#0d6b78"},
+  "pueblo": {"name": "Pueblanské a kiowa-tanoské", "color": "#c75b8f"},
+  "otomanguean": {"name": "Otomangské", "color": "#6d8f1f"},
+  "mayan": {"name": "Mayské", "color": "#2f9e44"},
+  "other": {"name": "Izolované a jiné", "color": "#7f7a72"}
+},
+"regions": {
+  "arctic": {"name": "Arktida"}, "subarctic": {"name": "Subarktida"}, "nwcoast": {"name": "Severozápadní pobřeží"},
+  "plateau": {"name": "Plošina a Velká pánev"}, "california": {"name": "Kalifornie"}, "southwest": {"name": "Jihozápad"},
+  "plains": {"name": "Velké pláně"}, "northeast": {"name": "Severovýchodní lesy"}, "southeast": {"name": "Jihovýchod"},
+  "aridamerica": {"name": "Severní a západní Mexiko"}, "mesoamerica": {"name": "Mezoamerika"}
+},
+"sources": [
+  {"name": "Wikipedia (anglická a česká)", "url": "https://en.wikipedia.org/wiki/Classification_of_Indigenous_peoples_of_the_Americas", "note": "popisy, současné počty obyvatel z infoboxů, klíčové události"},
+  {"name": "Wikidata", "url": "https://www.wikidata.org", "note": "české názvy, vazby na vlajky"},
+  {"name": "Wikimedia Commons", "url": "https://commons.wikimedia.org", "note": "obrázky vlajek; autoři a licence jsou v souboru data/flags/CREDITS.json"},
+  {"name": "James Mooney: The Aboriginal Population of America North of Mexico (1928)", "url": "https://repository.si.edu/handle/10088/23978", "note": "většina historických odhadů populace (označeno jako odhad)"},
+  {"name": "U.S. Census Bureau – TIGER/Line, American Indian/Alaska Native/Native Hawaiian Areas 2023", "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html", "note": "vrstva dnešních rezervací v USA (volné dílo)"},
+  {"name": "Natural Resources Canada – Aboriginal Lands of Canada Legislative Boundaries", "url": "https://open.canada.ca/data/en/dataset/522b07b9-78e2-4819-b736-ad9208eb1067", "note": "vrstva rezerv a území z dohod v Kanadě (Open Government Licence – Canada)"},
+  {"name": "Casey Helton – Bald eagle, Cannon Beach, Oregon (Wikimedia Commons)", "url": "https://commons.wikimedia.org/wiki/File:Bald_eagle_-_Cannon_Beach,_Oregon,_5-2026_3.jpg", "note": "fotografie orla v úvodní animaci (CC BY-SA 4.0, upraveno na pohled shora)"},
+  {"name": "Xrzt – Santa Maria replica ship (Wikimedia Commons)", "url": "https://commons.wikimedia.org/wiki/File:Santa_Maria_replica_ship.jpg", "note": "loď Santa María v animaci Kolumbovy plavby; CC BY-SA 4.0 – upraveno: vyříznuto z pozadí, odstraněna novodobá vlajka"},
+  {"name": "Lopo Pizarro – Caravela Vera Cruz (Wikimedia Commons)", "url": "https://commons.wikimedia.org/wiki/File:Caravela_Vera_Cruz.jpg", "note": "loď Niña v animaci Kolumbovy plavby (karavela, replika Vera Cruz); CC BY-SA 4.0 – upraveno: vyříznuto z pozadí"},
+  {"name": "Ron Perry – Native American flute (Internet Archive)", "url": "https://archive.org/details/RonPerry-PrayerSonglekom", "note": "hudba v pozadí – indiánská flétna (CC BY-NC-SA 3.0; skladby Prayer Song, Awakening, Variation; upraveno: ozvěna, smíchání s nočními zvuky)"},
+  {"name": "xeno-canto XC71575 – Jonathon Jongsma", "url": "https://xeno-canto.org/71575", "note": "hlas káně rudoocasé v úvodní animaci (CC BY-SA 3.0, zkráceno a upraveno)"},
+  {"name": "Native Land Digital", "url": "https://native-land.ca", "note": "volitelná vrstva tradičních území – vyžaduje vlastní API klíč, viz README"},
+  {"name": "Natural Earth", "url": "https://www.naturalearthdata.com", "note": "pobřeží a jezera pro ořez území (volné dílo)"},
+  {"name": "Esri World Physical Map", "url": "https://www.arcgis.com/home/item.html?id=c4ec722a1cd34cf0a23904aadf8923a0", "note": "reliéfní podkladová mapa (Esri, US National Park Service)"}
+],
+"nations": [
+
+{"id": "iroquois", "name": "Irokézové", "en": "Iroquois / Haudenosaunee", "endonym": "Haudenosaunee („lid dlouhého domu“)", "aka": ["Mohawkové", "Senekové", "Šest národů", "Liga Irokézů"], "region": "northeast", "family": "iroquoian", "lang": "irokézská rodina", "countries": "USA (New York), Kanada (Ontario, Québec)", "lifeway": "zemědělci (kukuřice, fazole, dýně), dlouhé domy",
+ "wikiEn": "Iroquois", "wikiCs": "Irokézové",
+ "flag": {"commons": "Flag of the Iroquois Confederacy.svg", "caption": "Vlajka Konfederace Haudenosaunee (motiv Hiawathova pásu wampumu)"},
+ "text": "Konfederace pěti, později šesti národů (Mohawkové, Oneidové, Onondagové, Kajugové, Senekové a od roku 1722 Tuskarorové). Jedna z nejvlivnějších politických sil severovýchodu, v 17. století ovládala obchod s kožešinami a v tzv. bobřích válkách rozvrátila sousední národy.",
+ "population": [{"year": 1630, "value": 22000, "note": "odhad"}, {"year": 1770, "value": 10000, "note": "odhad"}, {"year": 2020, "value": 125000, "note": "USA a Kanada dohromady"}],
+ "events": [{"year": "~1450", "text": "Založení konfederace (podle tradice Velkým mírotvorcem a Hiawathou; datování je sporné)."}, {"year": 1722, "text": "Přijetí Tuskarorů – vzniká Šest národů."}, {"year": 1779, "text": "Sullivanova výprava vypálila irokézské vesnice během americké války za nezávislost."}, {"year": 1784, "text": "Smlouva z Fort Stanwix; část Irokézů odchází na Grand River v Ontariu."}],
+ "territories": [
+  {"from": null, "to": 1784, "kind": "home", "label": "Domovina v dnešním státě New York", "poly": [[43.3,-79.0],[43.4,-76.5],[44.3,-75.8],[44.0,-74.0],[43.0,-73.7],[42.3,-74.3],[42.0,-76.5],[42.1,-78.8]]},
+  {"from": 1784, "to": null, "kind": "res", "label": "Six Nations of the Grand River (Ontario)", "poly": [[43.2,-80.3],[43.2,-79.95],[42.95,-79.9],[42.9,-80.25]]},
+  {"from": 1784, "to": null, "kind": "res", "label": "Rezervace Seneků (západní New York)", "poly": [[42.6,-79.1],[42.6,-78.4],[42.0,-78.4],[42.0,-79.1]]}
+ ]},
+
+{"id": "huron", "name": "Huroni", "en": "Huron / Wyandot", "endonym": "Wendat", "aka": ["Wendat", "Wyandot"], "region": "northeast", "family": "iroquoian", "lang": "irokézská rodina", "countries": "Kanada (Québec), USA (Oklahoma, Kansas)", "lifeway": "zemědělci a obchodníci, opevněné vesnice",
+ "wikiEn": "Wyandot people", "wikiCs": "Huroni",
+ "flag": null,
+ "text": "Konfederace usedlých zemědělců mezi Huronským jezerem a jezerem Simcoe, klíčoví obchodní spojenci Francouzů. V letech 1649–1650 ji rozvrátili Irokézové; přeživší se rozptýlili – část se usadila u Québeku (Wendake), část jako Wyandoti skončila přes Ohio a Kansas v Oklahomě.",
+ "population": [{"year": 1615, "value": 25000, "note": "odhad (20–30 tisíc)"}, {"year": 1640, "value": 9000, "note": "odhad po epidemiích neštovic"}, {"year": 2020, "value": 9000, "note": "Wyandotte Nation v USA a Huron-Wendat v Kanadě"}],
+ "events": [{"year": 1615, "text": "Samuel de Champlain navštěvuje Huronii."}, {"year": 1649, "text": "Irokézský útok rozvrátil huronskou konfederaci."}, {"year": 1697, "text": "Usídlení ve Wendake (Jeune-Lorette) u Québeku."}, {"year": 1867, "text": "Wyandoti získávají půdu na Indiánském teritoriu (Oklahoma)."}],
+ "territories": [
+  {"from": null, "to": 1650, "kind": "home", "label": "Huronie (Wendake Ehen) u Georgian Bay", "poly": [[44.9,-80.2],[44.9,-79.3],[44.3,-79.2],[44.2,-80.0]]},
+  {"from": 1697, "to": null, "kind": "res", "label": "Wendake u města Québec", "poly": [[46.95,-71.45],[46.95,-71.25],[46.8,-71.25],[46.8,-71.45]]},
+  {"from": 1867, "to": null, "kind": "res", "label": "Wyandotte Nation (Oklahoma)", "poly": [[36.92,-94.85],[36.92,-94.62],[36.72,-94.62],[36.72,-94.85]]}
+ ]},
+
+{"id": "lenape", "name": "Lenapové", "en": "Lenape / Delaware", "endonym": "Lenni Lenape („skuteční lidé“)", "aka": ["Delawarové"], "region": "northeast", "family": "algic", "lang": "algonkinská rodina", "countries": "USA (Oklahoma, Wisconsin), Kanada (Ontario)", "lifeway": "zemědělci, lovci a rybáři",
+ "wikiEn": "Lenape", "wikiCs": "Lenapové",
+ "flag": {"commons": "Flag of the Delaware Tribe of Indians.gif", "caption": "Vlajka Delaware Tribe of Indians (Oklahoma)"},
+ "text": "Původní obyvatelé údolí řeky Delaware, dnešního New Jersey a okolí New Yorku – právě od nich Nizozemci „koupili“ Manhattan. Tlak kolonistů je postupně vytlačil přes Pensylvánii, Ohio, Indianu a Kansas až do Oklahomy.",
+ "population": [{"year": 1600, "value": 15000, "note": "odhad (8–20 tisíc)"}, {"year": 2010, "value": 16000, "note": "všechny lenapské kmeny v USA a Kanadě"}],
+ "events": [{"year": 1626, "text": "Prodej Manhattanu Nizozemcům."}, {"year": 1737, "text": "„Walking Purchase“ – podvodný zábor rozsáhlých území v Pensylvánii."}, {"year": 1778, "text": "Smlouva z Fort Pitt – první smlouva USA s indiánským národem."}, {"year": 1867, "text": "Přesun z Kansasu na Indiánské teritorium."}],
+ "territories": [
+  {"from": null, "to": 1760, "kind": "home", "label": "Lenapehoking – údolí Delaware", "poly": [[41.9,-75.4],[41.6,-73.9],[40.6,-73.6],[39.3,-74.3],[38.8,-75.1],[39.4,-75.8],[40.5,-76.0]]},
+  {"from": 1750, "to": 1795, "kind": "moved", "label": "Vesnice v Ohiu (Muskingum)", "poly": [[41.0,-82.3],[41.0,-80.8],[39.8,-80.9],[39.8,-82.3]]},
+  {"from": 1867, "to": null, "kind": "res", "label": "Delaware Tribe (Bartlesville, Oklahoma)", "poly": [[36.95,-96.1],[36.95,-95.6],[36.55,-95.6],[36.55,-96.1]]}
+ ]},
+
+{"id": "wampanoag", "name": "Vampanoagové", "en": "Wampanoag", "endonym": "Wôpanâak („lid úsvitu“)", "region": "northeast", "family": "algic", "lang": "algonkinská rodina", "countries": "USA (Massachusetts)", "lifeway": "zemědělci, rybáři, sběrači měkkýšů",
+ "wikiEn": "Wampanoag", "wikiCs": null,
+ "flag": null,
+ "text": "Národ, který roku 1620 přijal poutníky z lodi Mayflower a s nímž je spojena první „díkůvzdání“. Po porážce v krvavé válce krále Filipa (Metacoma) v letech 1675–1676 zbyly z kdysi velké konfederace jen malé komunity.",
+ "population": [{"year": 1600, "value": 40000, "note": "odhad před epidemií 1616–1619"}, {"year": 1677, "value": 400, "note": "odhad přeživších po válce krále Filipa"}, {"year": 2010, "value": 2756, "approx": false, "note": "sčítání lidu USA"}],
+ "events": [{"year": 1616, "text": "Epidemie zavlečená Evropany zabíjí většinu pobřežních obyvatel."}, {"year": 1621, "text": "Sačem Massasoit uzavírá mír s kolonií Plymouth."}, {"year": 1675, "text": "Válka krále Filipa (Metacoma)."}, {"year": 2007, "text": "Federální uznání kmene Mashpee Wampanoag."}],
+ "territories": [
+  {"from": null, "to": 1676, "kind": "home", "label": "Jihovýchodní Massachusetts a ostrovy", "poly": [[42.15,-71.3],[42.1,-70.6],[41.75,-69.95],[41.25,-70.0],[41.3,-70.85],[41.5,-71.35]]},
+  {"from": 1676, "to": null, "kind": "res", "label": "Mashpee a Aquinnah", "poly": [[41.72,-70.62],[41.72,-70.4],[41.55,-70.4],[41.55,-70.62]]}
+ ]},
+
+{"id": "mikmaq", "name": "Mikmakové", "en": "Mi'kmaq", "endonym": "L'nu / Mi'kmaw", "region": "northeast", "family": "algic", "lang": "algonkinská rodina", "countries": "Kanada (Nové Skotsko, Nový Brunšvik, Québec, Newfoundland), USA (Maine)", "lifeway": "lovci, rybáři, mořeplavci v kánoích",
+ "wikiEn": "Mi'kmaq", "wikiCs": "Mikmakové",
+ "flag": {"commons": "Mikmaq State Flag.svg", "caption": "Vlajka Velké rady Mikmaků (Santé Mawiómi)"},
+ "text": "Obyvatelé přímořských provincií Kanady (Mi'kma'ki) a jedni z prvních, kdo se setkali s evropskými rybáři. Své území nikdy formálně nepostoupili; smlouvy „míru a přátelství“ z 18. století jsou dodnes základem jejich práv.",
+ "population": [{"year": 1500, "value": 20000, "note": "odhad (4–35 tisíc)"}, {"year": 1760, "value": 3000, "note": "odhad"}, {"year": 2023, "value": 66748, "approx": false, "note": "registrovaní členové"}],
+ "events": [{"year": 1610, "text": "Velký náčelník Membertou přijímá křest a spojenectví s Francouzi."}, {"year": 1725, "text": "První ze smluv míru a přátelství s Brity."}, {"year": 1999, "text": "Rozsudek Marshall potvrdil smluvní práva na rybolov."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Mi'kma'ki", "poly": [[49.2,-64.3],[48.0,-64.2],[47.3,-61.5],[46.2,-59.7],[45.0,-60.9],[43.4,-65.6],[44.4,-66.3],[45.6,-64.9],[46.0,-66.0],[47.6,-66.6],[48.4,-66.2]]}
+ ]},
+
+{"id": "abenaki", "name": "Abenakové", "en": "Abenaki", "endonym": "Wôbanakiak („lid země úsvitu“)", "region": "northeast", "family": "algic", "lang": "algonkinská rodina", "countries": "Kanada (Québec), USA (Vermont, New Hampshire, Maine)", "lifeway": "lovci, rybáři a zemědělci",
+ "wikiEn": "Abenaki", "wikiCs": "Abenakové",
+ "flag": null,
+ "text": "Algonkinský národ severní Nové Anglie, člen Wabanacké konfederace a spojenec Francouzů proti anglickým koloniím. Většina se během válek 17. a 18. století stáhla do misijních vesnic Odanak a Wôlinak v Québeku.",
+ "population": [{"year": 1600, "value": 40000, "note": "odhad (západní i východní Abenakové)"}, {"year": 2021, "value": 21000, "note": "USA a Kanada"}],
+ "events": [{"year": 1675, "text": "První z řady válek s anglickými kolonisty."}, {"year": 1759, "text": "Rogersovi rangeři vypálili Odanak (St. Francis)."}],
+ "territories": [
+  {"from": null, "to": 1780, "kind": "home", "label": "Ndakinna – severní Nová Anglie", "poly": [[46.3,-72.5],[46.0,-70.3],[45.3,-69.3],[44.3,-69.2],[43.5,-70.3],[42.8,-70.9],[42.7,-72.5],[43.6,-73.3],[45.0,-73.3]]},
+  {"from": 1700, "to": null, "kind": "res", "label": "Odanak a Wôlinak (Québec)", "poly": [[46.3,-72.95],[46.3,-72.3],[46.0,-72.3],[46.0,-72.95]]}
+ ]},
+
+{"id": "powhatan", "name": "Pauhatani", "en": "Powhatan", "endonym": "Tsenacommacah (název země)", "region": "northeast", "family": "algic", "lang": "algonkinská rodina", "countries": "USA (Virginie)", "lifeway": "zemědělci, vesnice z dlouhých chýší",
+ "wikiEn": "Powhatan", "wikiCs": null,
+ "flag": null,
+ "text": "Konfederace asi třiceti kmenů přímořské Virginie pod vládou náčelníka Wahunsenacaha, otce Pocahontas. Právě na jejich území vznikl roku 1607 Jamestown; po třech válkách s Angličany konfederace zanikla, její potomci však ve Virginii žijí dodnes.",
+ "population": [{"year": 1607, "value": 15000, "note": "odhad (14–21 tisíc)"}, {"year": 1669, "value": 1800, "note": "odhad podle soupisu bojovníků"}, {"year": 2020, "value": 3500, "note": "hrubý odhad členů nástupnických kmenů (Pamunkey, Mattaponi aj.)"}],
+ "events": [{"year": 1607, "text": "Založení Jamestownu."}, {"year": 1622, "text": "Opechancanoughův útok na kolonii – druhá anglo-pauhatanská válka."}, {"year": 1677, "text": "Smlouva z Middle Plantation – kmeny se stávají poddanými koruny, vznikají rezervace."}],
+ "territories": [
+  {"from": null, "to": 1677, "kind": "home", "label": "Tsenacommacah – přímořská Virginie", "poly": [[38.9,-77.2],[38.0,-76.2],[37.1,-75.9],[36.7,-76.3],[36.8,-77.4],[37.5,-77.7],[38.3,-77.6]]},
+  {"from": 1677, "to": null, "kind": "res", "label": "Rezervace Pamunkey a Mattaponi", "poly": [[37.72,-77.12],[37.72,-76.9],[37.5,-76.9],[37.5,-77.12]]}
+ ]},
+
+{"id": "shawnee", "name": "Šavané", "en": "Shawnee", "endonym": "Shaawanwaki", "aka": ["Šónýové"], "region": "northeast", "family": "algic", "lang": "algonkinská rodina", "countries": "USA (Oklahoma)", "lifeway": "polousedlí zemědělci a lovci",
+ "wikiEn": "Shawnee", "wikiCs": "Šavané",
+ "flag": null,
+ "text": "Národ z údolí řeky Ohio, proslulý dlouhým odporem proti americké expanzi. Náčelník Tecumseh se počátkem 19. století pokusil sjednotit kmeny od Velkých jezer po Mexický záliv do jediné konfederace.",
+ "population": [{"year": 1650, "value": 3000, "note": "odhad (Mooney)"}, {"year": 2010, "value": 7584, "approx": false, "note": "zapsaní členové tří šavanských kmenů v Oklahomě"}],
+ "events": [{"year": 1774, "text": "Válka lorda Dunmora o Kentucky."}, {"year": 1795, "text": "Smlouva z Greenville – ztráta většiny Ohia."}, {"year": 1813, "text": "Tecumseh padl v bitvě na řece Thames."}, {"year": 1832, "text": "Nucený odchod z Ohia do Kansasu."}],
+ "territories": [
+  {"from": null, "to": 1795, "kind": "home", "label": "Údolí Ohia", "poly": [[40.3,-84.6],[40.4,-82.0],[39.3,-80.9],[38.0,-81.8],[37.6,-84.2],[38.4,-85.5],[39.5,-85.0]]},
+  {"from": 1795, "to": 1832, "kind": "moved", "label": "Severozápadní Ohio (Wapakoneta)", "poly": [[41.0,-84.6],[41.0,-83.5],[40.3,-83.5],[40.3,-84.6]]},
+  {"from": 1832, "to": 1869, "kind": "res", "label": "Rezervace v Kansasu", "poly": [[39.1,-95.6],[39.1,-94.65],[38.7,-94.65],[38.7,-95.6]]},
+  {"from": 1869, "to": null, "kind": "res", "label": "Šavanské kmeny v Oklahomě", "poly": [[35.55,-97.15],[35.55,-96.7],[35.1,-96.7],[35.1,-97.15]]}
+ ]},
+
+{"id": "miami", "name": "Miamiové", "en": "Miami", "endonym": "Myaamiaki („lidé po proudu“)", "region": "northeast", "family": "algic", "lang": "algonkinská rodina", "countries": "USA (Oklahoma, Indiana)", "lifeway": "zemědělci (pověstná bílá kukuřice) a lovci bizonů",
+ "wikiEn": "Miami people", "wikiCs": null,
+ "flag": null,
+ "text": "Národ z dnešní Indiany a západního Ohia. Pod vedením náčelníka Malé želvy uštědřil roku 1791 americké armádě jednu z jejích nejtěžších porážek v indiánských válkách.",
+ "population": [{"year": 1650, "value": 4500, "note": "odhad (Mooney)"}, {"year": 2011, "value": 3908, "approx": false, "note": "zapsaní členové Miami Tribe of Oklahoma"}],
+ "events": [{"year": 1791, "text": "Malá želva poráží armádu generála St. Claira."}, {"year": 1794, "text": "Porážka konfederace u Fallen Timbers."}, {"year": 1846, "text": "Nucené přesídlení z Indiany do Kansasu, později do Oklahomy."}],
+ "territories": [
+  {"from": null, "to": 1846, "kind": "home", "label": "Myaamionki – Indiana a západní Ohio", "poly": [[41.7,-87.3],[41.7,-84.6],[40.3,-84.2],[39.5,-84.8],[39.6,-87.4],[40.6,-87.5]]},
+  {"from": 1846, "to": 1867, "kind": "res", "label": "Rezervace v Kansasu", "poly": [[38.7,-95.1],[38.7,-94.62],[38.3,-94.62],[38.3,-95.1]]},
+  {"from": 1867, "to": null, "kind": "res", "label": "Miami Tribe of Oklahoma", "poly": [[37.0,-95.0],[37.0,-94.78],[36.8,-94.78],[36.8,-95.0]]}
+ ]},
+
+{"id": "ojibwe", "name": "Odžibvejové", "en": "Ojibwe / Chippewa", "endonym": "Anishinaabe", "aka": ["Čipevové", "Anišinábové"], "region": "northeast", "family": "algic", "lang": "algonkinská rodina", "countries": "Kanada (Ontario, Manitoba, Saskatchewan), USA (Minnesota, Wisconsin, Michigan, Severní Dakota)", "lifeway": "lovci, rybáři, sběrači divoké rýže; kánoe z březové kůry",
+ "wikiEn": "Ojibwe", "wikiCs": "Odžibvejové",
+ "flag": null,
+ "text": "Jeden z nejpočetnějších národů severně od Mexika, usazený kolem Hořejšího a Huronského jezera. Spolu s Otavy a Potavatomii tvořili Radu tří ohňů; v 18. století vytlačili Siouxy z lesů Minnesoty na pláně.",
+ "population": [{"year": 1650, "value": 35000, "note": "odhad (Mooney)"}, {"year": 2020, "value": 330000, "note": "USA a Kanada; odhady 300–360 tisíc"}],
+ "events": [{"year": "~1500", "text": "Podle tradice dokončena migrace od Atlantiku k Velkým jezerům."}, {"year": "~1750", "text": "Vytlačení Dakotů z okolí Mille Lacs."}, {"year": 1850, "text": "Robinsonovy smlouvy v Kanadě; v USA série postoupení půdy a vznik rezervací."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Anishinaabewaki – kolem Hořejšího a Huronského jezera", "poly": [[51.5,-98.0],[52.0,-90.0],[50.0,-84.0],[48.0,-80.0],[46.0,-79.5],[45.0,-81.5],[45.5,-84.5],[45.8,-87.0],[45.0,-90.0],[45.5,-93.5],[46.5,-96.0],[48.5,-97.5],[50.0,-99.5]]}
+ ]},
+
+{"id": "potawatomi", "name": "Potavatomiové", "en": "Potawatomi", "endonym": "Bodéwadmi („strážci ohně“)", "region": "northeast", "family": "algic", "lang": "algonkinská rodina", "countries": "USA (Oklahoma, Kansas, Michigan, Wisconsin, Indiana), Kanada (Ontario)", "lifeway": "zemědělci, lovci a rybáři",
+ "wikiEn": "Potawatomi", "wikiCs": null,
+ "flag": null,
+ "text": "„Strážci ohně“ Rady tří ohňů, usazení kolem jižního cípu Michiganského jezera, kde dnes leží Chicago. Roku 1838 byli z Indiany odvlečeni pochodem zvaným Stezka smrti do Kansasu.",
+ "population": [{"year": 1650, "value": 4000, "note": "odhad (Mooney)"}, {"year": 2020, "value": 48000, "note": "všechny potavatomijské kmeny"}],
+ "events": [{"year": 1833, "text": "Chicagská smlouva – postoupení posledních území u Michiganského jezera."}, {"year": 1838, "text": "Potavatomijská Stezka smrti z Indiany do Kansasu."}, {"year": 1867, "text": "Část kmene (Citizen Potawatomi) odchází do Oklahomy."}],
+ "territories": [
+  {"from": null, "to": 1838, "kind": "home", "label": "Kolem jižního Michiganského jezera", "poly": [[43.5,-88.5],[43.3,-86.4],[42.6,-84.6],[41.3,-84.9],[40.8,-86.5],[40.9,-88.3],[41.8,-89.3]]},
+  {"from": 1838, "to": null, "kind": "res", "label": "Prairie Band (Kansas)", "poly": [[39.45,-95.95],[39.45,-95.62],[39.22,-95.62],[39.22,-95.95]]},
+  {"from": 1867, "to": null, "kind": "res", "label": "Citizen Potawatomi Nation (Oklahoma)", "poly": [[35.5,-97.14],[35.5,-96.75],[35.0,-96.75],[35.0,-97.14]]}
+ ]},
+
+{"id": "hochunk", "name": "Vinnebagové", "en": "Ho-Chunk / Winnebago", "endonym": "Hoocąk („lid velkého hlasu“)", "aka": ["Ho-Chunk", "Hočankové"], "region": "northeast", "family": "siouan", "lang": "siouxská rodina", "countries": "USA (Wisconsin, Nebraska)", "lifeway": "zemědělci, lovci, sběrači divoké rýže",
+ "wikiEn": "Ho-Chunk", "wikiCs": null,
+ "flag": null,
+ "text": "Siouxsky mluvící národ z Wisconsinu, obklopený algonkinskými sousedy. V 19. století byl několikrát násilně stěhován (Iowa, Minnesota, Dakota, Nebraska), mnozí se však tajně vraceli domů – proto dnes existují dva kmeny, ve Wisconsinu a v Nebrasce.",
+ "population": [{"year": 1620, "value": 8000, "note": "odhad (5–20 tisíc)"}, {"year": 1665, "value": 500, "note": "odhad po epidemiích a válkách"}, {"year": 2024, "value": 12055, "approx": false}],
+ "events": [{"year": 1634, "text": "Jean Nicolet se jako první Evropan setkává s Vinnebagy u Green Bay."}, {"year": 1837, "text": "Smlouva o postoupení veškeré půdy ve Wisconsinu."}, {"year": 1865, "text": "Vznik rezervace v Nebrasce."}],
+ "territories": [
+  {"from": null, "to": 1837, "kind": "home", "label": "Wisconsin – Green Bay a řeka Wisconsin", "poly": [[45.0,-90.7],[44.9,-88.0],[43.8,-87.9],[42.6,-88.8],[42.6,-90.6],[43.6,-91.2]]},
+  {"from": 1865, "to": null, "kind": "res", "label": "Winnebago Reservation (Nebraska)", "poly": [[42.36,-96.85],[42.36,-96.35],[42.1,-96.35],[42.1,-96.85]]},
+  {"from": 1875, "to": null, "kind": "res", "label": "Ho-Chunk Nation (Wisconsin)", "poly": [[44.5,-91.05],[44.5,-90.5],[44.1,-90.5],[44.1,-91.05]]}
+ ]},
+
+{"id": "cherokee", "name": "Čerokíové", "en": "Cherokee", "endonym": "Aniyvwiya / ᏣᎳᎩ (Tsalagi)", "region": "southeast", "family": "iroquoian", "lang": "irokézská rodina", "countries": "USA (Oklahoma, Severní Karolína)", "lifeway": "zemědělci, města s radními domy",
+ "wikiEn": "Cherokee", "wikiCs": "Čerokíové",
+ "flag": {"commons": "Flag of the Cherokee Nation.svg", "caption": "Vlajka Cherokee Nation (Oklahoma)"},
+ "text": "Největší z „pěti civilizovaných kmenů“ jihovýchodu. Sequoyah pro ně kolem roku 1821 vytvořil vlastní slabičné písmo a národ přijal psanou ústavu; přesto byl v letech 1838–1839 vyhnán po Stezce slz do Oklahomy, kde zahynuly tisíce lidí.",
+ "population": [{"year": 1650, "value": 22000, "note": "odhad (Mooney)"}, {"year": 1835, "value": 16542, "approx": false, "note": "sčítání před vyhnáním"}, {"year": 2023, "value": 450000, "note": "zapsaní občané tří federálně uznaných kmenů"}],
+ "events": [{"year": 1821, "text": "Sequoyah dokončuje čerokíjské slabičné písmo."}, {"year": 1827, "text": "Přijetí ústavy Čerokíjského národa."}, {"year": 1838, "text": "Stezka slz – nucený pochod do Oklahomy, asi 4 000 mrtvých."}, {"year": 2020, "text": "Rozsudek McGirt v. Oklahoma potvrdil trvání rezervací ve východní Oklahomě."}],
+ "territories": [
+  {"from": null, "to": 1838, "kind": "home", "label": "Jižní Apalačské pohoří", "poly": [[36.9,-83.6],[36.6,-81.7],[35.4,-81.6],[34.4,-82.6],[33.9,-84.0],[34.0,-86.0],[34.9,-86.9],[36.2,-85.5]]},
+  {"from": 1838, "to": null, "kind": "res", "label": "Cherokee Nation (Oklahoma)", "poly": [[37.0,-95.8],[37.0,-94.62],[35.4,-94.45],[35.3,-95.3],[35.9,-95.8]]},
+  {"from": 1838, "to": null, "kind": "res", "label": "Východní skupina – Qualla Boundary (Severní Karolína)", "poly": [[35.62,-83.52],[35.62,-83.1],[35.38,-83.1],[35.38,-83.52]]}
+ ]},
+
+{"id": "muscogee", "name": "Kríkové", "en": "Muscogee (Creek)", "endonym": "Mvskoke", "aka": ["Muskogee", "Creek"], "region": "southeast", "family": "muskogean", "lang": "muskogejská rodina", "countries": "USA (Oklahoma, Alabama)", "lifeway": "zemědělci, konfederace měst (talwa)",
+ "wikiEn": "Muscogee", "wikiCs": "Kríkové",
+ "flag": null,
+ "text": "Konfederace měst v dnešní Georgii a Alabamě, dědicové mississippské mohylové kultury. Občanská válka „Rudých holí“ (1813–1814) skončila porážkou od Andrewa Jacksona a ztrátou většiny půdy; ve 30. letech 19. století následovalo vyhnání do Oklahomy.",
+ "population": [{"year": 1650, "value": 18000, "note": "odhad (Mooney)"}, {"year": 1832, "value": 22000, "note": "sčítání před vyhnáním"}, {"year": 2010, "value": 88332, "approx": false, "note": "sčítání lidu USA (hlásící se k původu)"}],
+ "events": [{"year": 1814, "text": "Bitva u Horseshoe Bend, smlouva z Fort Jackson – ztráta 93 000 km²."}, {"year": 1836, "text": "Nucené vystěhování do Indiánského teritoria."}, {"year": 2020, "text": "Rozsudek McGirt v. Oklahoma se týkal právě kríkské rezervace."}],
+ "territories": [
+  {"from": null, "to": 1836, "kind": "home", "label": "Georgie a Alabama", "poly": [[34.2,-86.6],[34.0,-83.6],[33.0,-82.3],[31.5,-82.6],[30.9,-84.5],[31.2,-87.2],[32.6,-87.6]]},
+  {"from": 1836, "to": null, "kind": "res", "label": "Muscogee Nation (Oklahoma)", "poly": [[36.2,-96.6],[36.15,-95.3],[35.3,-95.3],[35.0,-95.9],[35.15,-96.6]]}
+ ]},
+
+{"id": "choctaw", "name": "Čoktové", "en": "Choctaw", "endonym": "Chahta", "region": "southeast", "family": "muskogean", "lang": "muskogejská rodina", "countries": "USA (Oklahoma, Mississippi)", "lifeway": "zemědělci, stavitelé mohyl",
+ "wikiEn": "Choctaw", "wikiCs": "Čoktové",
+ "flag": {"commons": "Choctaw flag.svg", "caption": "Vlajka Choctaw Nation of Oklahoma"},
+ "text": "Zemědělský národ z dnešního státu Mississippi. Jako první byli roku 1831 vystěhováni podle zákona o odsunu indiánů – jejich náčelník tehdy cestu popsal jako „stezku slz a smrti“. Čoktští šifranti sloužili v první světové válce.",
+ "population": [{"year": 1650, "value": 15000, "note": "odhad (Mooney)"}, {"year": 1830, "value": 19500, "note": "odhad před vystěhováním"}, {"year": 2023, "value": 214884, "note": "Choctaw Nation of Oklahoma a další čoktské kmeny"}],
+ "events": [{"year": 1830, "text": "Smlouva z Dancing Rabbit Creek – postoupení území v Mississippi."}, {"year": 1831, "text": "První vlna nuceného vystěhování do Oklahomy."}, {"year": 1847, "text": "Čoktové posílají peněžní pomoc Irům postiženým hladomorem."}],
+ "territories": [
+  {"from": null, "to": 1831, "kind": "home", "label": "Mississippi a západní Alabama", "poly": [[33.6,-90.6],[33.5,-88.2],[32.0,-87.8],[30.8,-88.3],[30.5,-89.6],[31.2,-90.9],[32.5,-91.0]]},
+  {"from": 1831, "to": null, "kind": "res", "label": "Choctaw Nation (Oklahoma)", "poly": [[35.3,-96.4],[35.25,-94.45],[33.65,-94.48],[33.75,-95.5],[33.9,-96.4],[34.5,-96.45]]},
+  {"from": 1831, "to": null, "kind": "res", "label": "Mississippi Band of Choctaw", "poly": [[32.95,-89.35],[32.95,-88.9],[32.65,-88.9],[32.65,-89.35]]}
+ ]},
+
+{"id": "chickasaw", "name": "Čikasavové", "en": "Chickasaw", "endonym": "Chikashsha", "region": "southeast", "family": "muskogean", "lang": "muskogejská rodina", "countries": "USA (Oklahoma)", "lifeway": "zemědělci a obávaní válečníci",
+ "wikiEn": "Chickasaw", "wikiCs": "Čikasavové",
+ "flag": {"commons": "Flag of the Chickasaw Nation.svg", "caption": "Vlajka Chickasaw Nation (Oklahoma)"},
+ "text": "Blízcí příbuzní Čoktů ze severu dnešního státu Mississippi, proslulí jako neporažení válečníci – odrazili de Sotovu výpravu i několik francouzských tažení. Roku 1837 se vykoupili do západní části čoktského území v Oklahomě.",
+ "population": [{"year": 1650, "value": 8000, "note": "odhad (Mooney)"}, {"year": 1837, "value": 4900, "note": "odhad vystěhovaných"}, {"year": 2023, "value": 80000, "note": "občané Chickasaw Nation (infobox Wikipedie uvádí starší údaj 38 tisíc)"}],
+ "events": [{"year": 1541, "text": "Střet s výpravou Hernanda de Sota."}, {"year": 1736, "text": "Vítězství nad Francouzi u Ackie."}, {"year": 1837, "text": "Přesun do Indiánského teritoria."}],
+ "territories": [
+  {"from": null, "to": 1837, "kind": "home", "label": "Severní Mississippi a západní Tennessee", "poly": [[36.4,-89.5],[36.0,-87.8],[34.5,-87.5],[33.6,-88.3],[33.7,-90.4],[35.0,-90.3]]},
+  {"from": 1837, "to": null, "kind": "res", "label": "Chickasaw Nation (Oklahoma)", "poly": [[35.0,-98.0],[34.9,-96.45],[33.9,-96.45],[33.75,-97.2],[34.0,-98.0]]}
+ ]},
+
+{"id": "seminole", "name": "Seminolové", "en": "Seminole", "endonym": "yat'siminoli („svobodní lidé“)", "region": "southeast", "family": "muskogean", "lang": "muskogejská rodina", "countries": "USA (Oklahoma, Florida)", "lifeway": "zemědělci a pastevci, v bažinách otevřené chýše chickee",
+ "wikiEn": "Seminole", "wikiCs": "Seminolové",
+ "flag": null,
+ "text": "Národ, který vznikl v 18. století na Floridě z kríkských přistěhovalců, zbytků místních kmenů a uprchlých otroků. Tři seminolské války (1817–1858) byly nejdelšími a nejdražšími indiánskými válkami USA; floridští Seminolové nikdy nepodepsali mír.",
+ "population": [{"year": 1820, "value": 5000, "note": "odhad"}, {"year": 1858, "value": 300, "note": "odhad těch, kdo zůstali na Floridě"}, {"year": 2020, "value": 20000, "note": "Seminole Nation of Oklahoma, Seminole Tribe of Florida a Miccosukee"}],
+ "events": [{"year": 1817, "text": "První seminolská válka."}, {"year": 1835, "text": "Druhá seminolská válka; náčelník Osceola."}, {"year": 1842, "text": "Většina Seminolů odsunuta do Oklahomy."}, {"year": 1858, "text": "Konec třetí války – několik set lidí zůstává v Everglades."}],
+ "territories": [
+  {"from": 1710, "to": 1842, "kind": "home", "label": "Severní a střední Florida", "poly": [[30.6,-84.9],[30.5,-81.6],[28.5,-80.8],[26.8,-80.3],[26.3,-81.8],[28.0,-82.8],[29.6,-83.5]]},
+  {"from": 1842, "to": null, "kind": "res", "label": "Seminole Nation (Oklahoma)", "poly": [[35.45,-96.8],[35.45,-96.45],[34.9,-96.45],[34.9,-96.8]]},
+  {"from": 1842, "to": null, "kind": "res", "label": "Everglades a Big Cypress (Florida)", "poly": [[26.6,-81.4],[26.6,-80.5],[25.6,-80.5],[25.6,-81.4]]}
+ ]},
+
+{"id": "natchez", "name": "Načezové", "en": "Natchez", "endonym": "Natchez", "region": "southeast", "family": "other", "lang": "izolovaný jazyk (načez)", "countries": "USA (potomci v Oklahomě a Jižní Karolíně)", "lifeway": "zemědělci, společnost s vládcem „Velkým sluncem“",
+ "wikiEn": "Natchez people", "wikiCs": "Načezové",
+ "flag": {"note": "Národ zanikl jako samostatný celek roku 1731 – vlajku neměl."},
+ "text": "Poslední velké náčelnictví mississippské kultury s posvátným vládcem zvaným Velké slunce a chrámovými mohylami. Po povstání proti Francouzům roku 1729 byli Načezové rozprášeni, prodáni do otroctví nebo splynuli s Čikasavy, Kríky a Čerokíji.",
+ "population": [{"year": 1650, "value": 4500, "note": "odhad (Mooney)"}, {"year": 1731, "value": 0, "approx": false, "note": "zánik jako samostatného národa"}],
+ "events": [{"year": 1682, "text": "La Salle navštěvuje načezské vesnice."}, {"year": 1729, "text": "Povstání – zničení francouzské pevnosti Rosalie."}, {"year": 1731, "text": "Francouzská odveta: zajatci prodáni do otroctví na Saint-Domingue."}],
+ "territories": [
+  {"from": null, "to": 1731, "kind": "home", "label": "Dolní tok Mississippi", "poly": [[32.2,-91.6],[32.2,-90.8],[31.2,-90.8],[31.2,-91.7]]}
+ ]},
+
+{"id": "timucua", "name": "Timukuové", "en": "Timucua", "endonym": "", "region": "southeast", "family": "other", "lang": "izolovaný jazyk (timucua)", "countries": "—", "lifeway": "zemědělci a rybáři, asi 35 náčelnictví",
+ "wikiEn": "Timucua", "wikiCs": "Timukuové",
+ "flag": {"note": "Národ vymřel v 18. století – vlajku neměl."},
+ "text": "Původní obyvatelé severní Floridy, které jako první potkali Španělé a francouzští hugenoti. Epidemie, misijní systém a nájezdy otrokářů je během dvou století zcela vyhubily; poslední přeživší odpluli roku 1763 se Španěly na Kubu. Jejich uprázdněné území později osídlili Seminolové.",
+ "population": [{"year": 1500, "value": 200000, "note": "odhad (50–200 tisíc)"}, {"year": 1595, "value": 50000, "note": "odhad"}, {"year": 1700, "value": 1000, "note": "odhad"}, {"year": 1767, "value": 0, "approx": false, "note": "považováni za vymřelé"}],
+ "events": [{"year": 1513, "text": "Ponce de León přistává na Floridě."}, {"year": 1565, "text": "Založení St. Augustine na timukujském území."}, {"year": 1763, "text": "Poslední Timukuové odcházejí se Španěly na Kubu."}],
+ "territories": [
+  {"from": null, "to": 1765, "kind": "home", "label": "Severní Florida a jihovýchodní Georgie", "poly": [[31.6,-83.4],[31.5,-81.3],[29.9,-81.2],[28.4,-80.7],[28.3,-82.3],[29.6,-83.6]]}
+ ]},
+
+{"id": "caddo", "name": "Kaddové", "en": "Caddo", "endonym": "Hasinai", "region": "southeast", "family": "caddoan", "lang": "kaddoská rodina", "countries": "USA (Oklahoma)", "lifeway": "zemědělci, stavitelé mohyl, hrnčíři",
+ "wikiEn": "Caddo", "wikiCs": null,
+ "flag": null,
+ "text": "Konfederace zemědělských kmenů na pomezí dnešního Texasu, Louisiany, Arkansasu a Oklahomy. Jméno Texas pochází z kaddoského slova táyshaʼ – „přítel“.",
+ "population": [{"year": 1690, "value": 8500, "note": "odhad (Mooney)"}, {"year": 2020, "value": 6300}],
+ "events": [{"year": 1542, "text": "Setkání s de Sotovou výpravou."}, {"year": 1835, "text": "Postoupení území v Louisianě Spojeným státům."}, {"year": 1859, "text": "Vyhnání z Texasu do Indiánského teritoria."}],
+ "territories": [
+  {"from": null, "to": 1835, "kind": "home", "label": "Na pomezí Texasu, Louisiany a Arkansasu", "poly": [[34.6,-95.6],[34.4,-93.0],[32.5,-92.6],[31.2,-93.3],[31.0,-95.2],[32.2,-96.2]]},
+  {"from": 1854, "to": 1859, "kind": "res", "label": "Rezervace na řece Brazos (Texas)", "poly": [[33.3,-98.9],[33.3,-98.4],[32.9,-98.4],[32.9,-98.9]]},
+  {"from": 1859, "to": null, "kind": "res", "label": "Caddo Nation (Binger, Oklahoma)", "poly": [[35.5,-98.6],[35.5,-98.15],[35.1,-98.15],[35.1,-98.6]]}
+ ]},
+
+{"id": "sioux", "name": "Siouxové", "en": "Sioux (Dakota, Lakota, Nakota)", "endonym": "Očhéthi Šakówiŋ („sedm poradních ohňů“)", "aka": ["Dakotové", "Lakotové", "Oglalové"], "region": "plains", "family": "siouan", "lang": "siouxská rodina", "countries": "USA (Jižní a Severní Dakota, Minnesota, Nebraska, Montana), Kanada", "lifeway": "lovci bizonů na koních, týpí",
+ "wikiEn": "Sioux", "wikiCs": "Siouxové",
+ "flag": {"commons": "Pine Ridge Flag.svg", "caption": "Vlajka Oglalů z rezervace Pine Ridge – jednoho ze siouxských kmenů; společnou vlajku Siouxové nemají"},
+ "text": "Velká konfederace Dakotů a Lakotů. Původně lesní národ z Minnesoty, který se v 18. století po získání koní přesunul na pláně a stal se jejich dominantní silou. Sedící býk, Splašený kůň a Rudý oblak vedli odpor, který vyvrcholil vítězstvím u Little Bighornu (1876) a skončil masakrem u Wounded Knee (1890).",
+ "population": [{"year": 1780, "value": 25000, "note": "odhad (Mooney)"}, {"year": 2010, "value": 170110, "approx": false, "note": "sčítání lidu USA"}],
+ "events": [{"year": 1862, "text": "Dakotská válka v Minnesotě."}, {"year": 1868, "text": "Smlouva z Fort Laramie – Velká siouxská rezervace včetně Black Hills."}, {"year": 1876, "text": "Bitva u Little Bighornu."}, {"year": 1890, "text": "Masakr u Wounded Knee."}, {"year": 1980, "text": "Nejvyšší soud USA uznal zábor Black Hills za protiprávní; Siouxové odškodné odmítají a žádají vrácení půdy."}],
+ "territories": [
+  {"from": null, "to": 1800, "kind": "home", "label": "Lesy Minnesoty (Mille Lacs)", "poly": [[48.5,-97.0],[48.3,-92.5],[46.0,-91.5],[44.0,-91.5],[43.5,-94.0],[44.0,-97.0]]},
+  {"from": 1750, "to": 1868, "kind": "home", "label": "Severní pláně – Dakoty, Nebraska, Wyoming", "poly": [[48.5,-104.5],[48.5,-97.0],[45.5,-94.5],[43.5,-94.5],[42.3,-97.5],[41.3,-101.5],[42.0,-105.5],[44.5,-107.5],[46.5,-106.5]]},
+  {"from": 1868, "to": 1889, "kind": "res", "label": "Velká siouxská rezervace", "poly": [[45.94,-104.05],[45.94,-100.4],[44.5,-100.4],[43.4,-99.2],[43.0,-98.5],[43.0,-104.05]]},
+  {"from": 1889, "to": null, "kind": "res", "label": "Pine Ridge a Rosebud", "poly": [[43.8,-103.0],[43.8,-101.2],[43.4,-100.2],[43.0,-100.2],[43.0,-103.0]]},
+  {"from": 1889, "to": null, "kind": "res", "label": "Standing Rock a Cheyenne River", "poly": [[46.4,-102.0],[46.4,-100.6],[45.0,-100.3],[44.4,-100.6],[44.6,-102.0]]}
+ ]},
+
+{"id": "cheyenne", "name": "Šajeni", "en": "Cheyenne", "endonym": "Tsétsėhéstȧhese a Só'taeo'o", "region": "plains", "family": "algic", "lang": "algonkinská rodina", "countries": "USA (Montana, Oklahoma)", "lifeway": "lovci bizonů na koních, vojenské spolky",
+ "wikiEn": "Cheyenne", "wikiCs": "Šajeni",
+ "flag": {"commons": "Flag of Northern Cheyenne.svg", "caption": "Vlajka Severních Šajenů (motiv jitřenky)"},
+ "text": "Algonkinský národ, který se během 18. století změnil z usedlých zemědělců u řeky Sheyenne v jezdecké lovce bizonů. Přežili masakry u Sand Creeku (1864) a na Washitě (1868); Severní Šajeni si roku 1878–1879 dramatickým útěkem z Oklahomy vybojovali rezervaci v Montaně.",
+ "population": [{"year": 1780, "value": 3500, "note": "odhad (Mooney)"}, {"year": 2020, "value": 22970, "approx": false}],
+ "events": [{"year": 1864, "text": "Masakr u Sand Creeku."}, {"year": 1876, "text": "Účast v bitvě u Little Bighornu."}, {"year": 1878, "text": "Exodus Severních Šajenů z Oklahomy."}, {"year": 1884, "text": "Zřízení rezervace Severních Šajenů v Montaně."}],
+ "territories": [
+  {"from": 1700, "to": 1800, "kind": "home", "label": "Řeka Sheyenne (Severní Dakota)", "poly": [[47.5,-99.5],[47.5,-96.8],[46.0,-96.8],[46.0,-99.5]]},
+  {"from": 1800, "to": 1877, "kind": "home", "label": "Střední pláně", "poly": [[46.0,-107.0],[45.5,-103.5],[41.5,-100.5],[38.0,-100.0],[37.5,-103.5],[39.5,-105.0],[42.5,-106.0],[44.5,-107.5]]},
+  {"from": 1869, "to": null, "kind": "res", "label": "Jižní Šajeni a Arapahové (Oklahoma)", "poly": [[36.2,-99.6],[36.2,-98.0],[35.5,-98.0],[35.5,-99.6]]},
+  {"from": 1884, "to": null, "kind": "res", "label": "Rezervace Severních Šajenů (Montana)", "poly": [[45.78,-107.0],[45.78,-106.0],[45.3,-106.0],[45.3,-107.0]]}
+ ]},
+
+{"id": "arapaho", "name": "Arapahové", "en": "Arapaho", "endonym": "Hinono'eino", "region": "plains", "family": "algic", "lang": "algonkinská rodina", "countries": "USA (Wyoming, Oklahoma)", "lifeway": "lovci bizonů na koních",
+ "wikiEn": "Arapaho", "wikiCs": "Arapahové",
+ "flag": {"commons": "Flag of Arapaho Nation.svg", "caption": "Vlajka Severních Arapahů (Wyoming)"},
+ "text": "Blízcí spojenci Šajenů ze středních plání na úpatí Skalnatých hor. Severní Arapahové dnes sdílejí rezervaci Wind River ve Wyomingu se svými někdejšími nepřáteli Šošony, jižní žijí s Šajeny v Oklahomě.",
+ "population": [{"year": 1780, "value": 3000, "note": "odhad (Mooney)"}, {"year": 2010, "value": 10861, "approx": false}],
+ "events": [{"year": 1851, "text": "Smlouva z Fort Laramie přiznává Arapahům a Šajenům pláně mezi řekami Platte a Arkansas."}, {"year": 1864, "text": "Masakr u Sand Creeku."}, {"year": 1878, "text": "Severní Arapahové umístěni do rezervace Wind River."}],
+ "territories": [
+  {"from": 1750, "to": 1867, "kind": "home", "label": "Pláně Colorada a Wyomingu", "poly": [[42.8,-106.5],[42.5,-103.0],[40.0,-101.0],[38.0,-101.0],[37.5,-104.5],[39.0,-105.5],[41.0,-106.3]]},
+  {"from": 1878, "to": null, "kind": "res", "label": "Wind River (Wyoming)", "poly": [[43.6,-109.5],[43.6,-108.0],[42.75,-108.0],[42.75,-109.5]]}
+ ]},
+
+{"id": "comanche", "name": "Komančové", "en": "Comanche", "endonym": "Nʉmʉnʉʉ („lidé“)", "region": "plains", "family": "utoaztecan", "lang": "uto-aztécká rodina", "countries": "USA (Oklahoma)", "lifeway": "lovci bizonů, mistrní jezdci a chovatelé koní",
+ "wikiEn": "Comanche", "wikiCs": "Komančové",
+ "flag": null,
+ "text": "„Páni jižních plání“. Kolem roku 1700 se oddělili od Šošonů, získali koně a vytvořili Komančerii – říši, která po půldruhého století zastavila španělskou, mexickou i texaskou expanzi. Posledním válečným náčelníkem byl Quanah Parker.",
+ "population": [{"year": 1780, "value": 40000, "note": "odhad na vrcholu moci (P. Hämäläinen); Mooney uvádí jen 7 000"}, {"year": 1890, "value": 1598, "approx": false, "note": "sčítání v rezervaci"}, {"year": 2021, "value": 17000, "note": "zapsaní členové Comanche Nation"}],
+ "events": [{"year": 1706, "text": "První španělská zmínka o Komančích v Novém Mexiku."}, {"year": 1840, "text": "Velký nájezd až k Mexickému zálivu."}, {"year": 1867, "text": "Smlouva z Medicine Lodge – rezervace v Oklahomě."}, {"year": 1875, "text": "Quanah Parker se vzdává ve Fort Sill."}],
+ "territories": [
+  {"from": 1700, "to": 1875, "kind": "home", "label": "Komančerie", "poly": [[38.2,-103.5],[37.8,-99.5],[35.5,-98.0],[32.0,-97.8],[29.8,-99.5],[30.5,-102.5],[33.0,-104.5],[36.0,-104.8]]},
+  {"from": 1867, "to": null, "kind": "res", "label": "Comanche Nation (Lawton, Oklahoma)", "poly": [[34.9,-99.0],[34.9,-98.1],[34.15,-98.1],[34.2,-99.0]]}
+ ]},
+
+{"id": "kiowa", "name": "Kajovové", "en": "Kiowa", "endonym": "Cáuigù", "aka": ["Kiowové"], "region": "plains", "family": "pueblo", "lang": "kiowa-tanoská rodina", "countries": "USA (Oklahoma)", "lifeway": "lovci bizonů na koních; obrázkové kalendáře",
+ "wikiEn": "Kiowa", "wikiCs": null,
+ "flag": null,
+ "text": "Národ, který doputoval z pramenů Yellowstonu přes Black Hills na jižní pláně, kde kolem roku 1790 uzavřel trvalé spojenectví s Komanči. Své dějiny zaznamenávali malovanými zimními a letními kalendáři.",
+ "population": [{"year": 1780, "value": 2000, "note": "odhad (Mooney)"}, {"year": 2011, "value": 12000}],
+ "events": [{"year": 1790, "text": "Mír a spojenectví s Komanči."}, {"year": 1867, "text": "Smlouva z Medicine Lodge."}, {"year": 1874, "text": "Válka na Red River – konec svobodného života na pláních."}],
+ "territories": [
+  {"from": 1700, "to": 1780, "kind": "home", "label": "Black Hills", "poly": [[45.0,-105.0],[45.0,-102.5],[43.3,-102.5],[43.3,-105.0]]},
+  {"from": 1780, "to": 1875, "kind": "home", "label": "Jižní pláně", "poly": [[38.0,-102.0],[37.8,-98.5],[35.0,-98.0],[34.3,-99.5],[34.5,-102.5],[36.5,-103.0]]},
+  {"from": 1867, "to": null, "kind": "res", "label": "Kiowa Tribe (Carnegie, Oklahoma)", "poly": [[35.35,-99.1],[35.35,-98.2],[34.95,-98.2],[34.95,-99.1]]}
+ ]},
+
+{"id": "crow", "name": "Vraní indiáni", "en": "Crow", "endonym": "Apsáalooke („děti velkozobého ptáka“)", "aka": ["Absarokové", "Vrány"], "region": "plains", "family": "siouan", "lang": "siouxská rodina", "countries": "USA (Montana)", "lifeway": "lovci bizonů na koních",
+ "wikiEn": "Crow people", "wikiCs": null,
+ "flag": null,
+ "text": "Národ z údolí Yellowstonu, který se kdysi oddělil od usedlých Hidatsů. Obklíčeni silnějšími nepřáteli – Lakoty, Šajeny a Černonožci – volili Vraní indiáni spojenectví s americkou armádou a sloužili jí jako zvědové, mimo jiné u Little Bighornu.",
+ "population": [{"year": 1780, "value": 4000, "note": "odhad (Mooney)"}, {"year": 2020, "value": 12000, "note": "zapsaní občané"}],
+ "events": [{"year": 1825, "text": "První smlouva o přátelství s USA."}, {"year": 1868, "text": "Smlouva z Fort Laramie vymezuje rezervaci v Montaně."}, {"year": 1876, "text": "Vraní zvědové doprovázejí Custera."}],
+ "territories": [
+  {"from": 1650, "to": 1868, "kind": "home", "label": "Údolí Yellowstonu a Bighornu", "poly": [[47.0,-110.5],[47.0,-105.5],[45.0,-105.0],[43.5,-106.5],[43.5,-109.5],[45.0,-111.0]]},
+  {"from": 1868, "to": null, "kind": "res", "label": "Crow Reservation (Montana)", "poly": [[45.9,-108.8],[45.9,-107.0],[45.0,-107.0],[45.0,-108.8]]}
+ ]},
+
+{"id": "blackfoot", "name": "Černonožci", "en": "Blackfoot Confederacy", "endonym": "Niitsitapi („praví lidé“)", "aka": ["Siksika", "Kainai", "Piikani"], "region": "plains", "family": "algic", "lang": "algonkinská rodina", "countries": "Kanada (Alberta), USA (Montana)", "lifeway": "lovci bizonů na koních",
+ "wikiEn": "Blackfoot Confederacy", "wikiCs": "Černonožci",
+ "flag": {"commons": "Flag of the Blackfoot Confederacy.jpg", "caption": "Vlajka Konfederace Černonožců"},
+ "text": "Konfederace kmenů Siksika, Kainai (Blood) a Piikani (Peigan), která ovládala severozápadní pláně od řeky Saskatchewan po Missouri a dlouho bránila lovcům kožešin v přístupu. Zlomilo ji vyhubení bizonů a „zima hladu“ 1883–1884.",
+ "population": [{"year": 1780, "value": 15000, "note": "odhad (Mooney)"}, {"year": 2020, "value": 32400, "note": "Kanada a USA (Wikidata)"}],
+ "events": [{"year": 1837, "text": "Epidemie neštovic zabíjí zhruba polovinu národa."}, {"year": 1855, "text": "Smlouva Lame Bull s USA."}, {"year": 1877, "text": "Smlouva č. 7 s Kanadou."}, {"year": 1883, "text": "Zima hladu po vymizení bizonů."}],
+ "territories": [
+  {"from": null, "to": 1877, "kind": "home", "label": "Severozápadní pláně", "poly": [[53.5,-114.5],[53.0,-109.0],[50.5,-106.0],[48.0,-106.0],[46.5,-109.5],[46.5,-112.5],[48.5,-114.0],[51.0,-115.3]]},
+  {"from": 1877, "to": null, "kind": "res", "label": "Blackfeet Reservation (Montana)", "poly": [[49.0,-113.4],[49.0,-112.2],[48.2,-112.2],[48.2,-113.4]]},
+  {"from": 1877, "to": null, "kind": "res", "label": "Rezervy Kainai a Piikani (Alberta)", "poly": [[49.8,-113.85],[49.8,-112.95],[49.15,-112.95],[49.15,-113.85]]},
+  {"from": 1877, "to": null, "kind": "res", "label": "Rezerva Siksika (Alberta)", "poly": [[51.0,-113.3],[51.0,-112.5],[50.6,-112.5],[50.6,-113.3]]}
+ ]},
+
+{"id": "pawnee", "name": "Póníové", "en": "Pawnee", "endonym": "Chaticks si Chaticks („muži mužů“)", "region": "plains", "family": "caddoan", "lang": "kaddoská rodina", "countries": "USA (Oklahoma)", "lifeway": "zemědělci v hliněných polozemnicích, sezónní lov bizonů; hvězdářství",
+ "wikiEn": "Pawnee people", "wikiCs": "Póníové",
+ "flag": null,
+ "text": "Polousedlý národ z údolí řek Platte a Loup v Nebrasce, známý propracovanou hvězdnou mytologií. Epidemie a útoky Lakotů snížily jeho počet z deseti tisíc na několik set; proslulí byli póníjští zvědové v americké armádě.",
+ "population": [{"year": 1780, "value": 10000, "note": "odhad (Mooney)"}, {"year": 1900, "value": 650, "note": "odhad"}, {"year": 2020, "value": 3600}],
+ "events": [{"year": 1833, "text": "První postoupení území Spojeným státům."}, {"year": 1873, "text": "Masakr v Massacre Canyon – útok Lakotů na lovecký tábor."}, {"year": 1875, "text": "Přesídlení z Nebrasky do Oklahomy."}],
+ "territories": [
+  {"from": null, "to": 1875, "kind": "home", "label": "Údolí Platte a Loup (Nebraska)", "poly": [[42.6,-101.0],[42.3,-96.8],[40.5,-96.3],[39.0,-97.0],[39.0,-100.5],[40.8,-101.5]]},
+  {"from": 1875, "to": null, "kind": "res", "label": "Pawnee Nation (Oklahoma)", "poly": [[36.5,-97.0],[36.5,-96.6],[36.15,-96.6],[36.15,-97.0]]}
+ ]},
+
+{"id": "osage", "name": "Osedžové", "en": "Osage", "endonym": "Ni-u-kon-ska („lidé středních vod“)", "region": "plains", "family": "siouan", "lang": "siouxská rodina", "countries": "USA (Oklahoma)", "lifeway": "zemědělci a lovci bizonů",
+ "wikiEn": "Osage Nation", "wikiCs": null,
+ "flag": {"commons": "Flag of the Osage Nation.svg", "caption": "Vlajka Osage Nation"},
+ "text": "Mocný národ mezi řekami Missouri a Arkansas, hlavní obchodní partner Francouzů v St. Louis. Po objevu ropy na jejich oklahomské rezervaci patřili ve 20. letech 20. století k nejbohatším lidem světa – a stali se oběťmi série vražd („Zabijáci rozkvetlého měsíce“).",
+ "population": [{"year": 1780, "value": 6200, "note": "odhad (Mooney)"}, {"year": 2020, "value": 24000}],
+ "events": [{"year": 1808, "text": "Smlouva z Fort Osage – postoupení většiny Missouri a Arkansasu."}, {"year": 1825, "text": "Přesun do rezervace v Kansasu."}, {"year": 1872, "text": "Koupě nové rezervace v Oklahomě."}, {"year": 1921, "text": "Začátek „vlády teroru“ – vraždy kvůli ropným podílům."}],
+ "territories": [
+  {"from": null, "to": 1825, "kind": "home", "label": "Mezi Missouri a Arkansasem", "poly": [[39.2,-95.5],[39.0,-91.8],[37.0,-91.0],[35.3,-92.5],[35.0,-95.5],[36.5,-97.5],[38.0,-97.0]]},
+  {"from": 1825, "to": 1872, "kind": "res", "label": "Rezervace v Kansasu", "poly": [[37.75,-98.5],[37.75,-95.0],[37.0,-95.0],[37.0,-98.5]]},
+  {"from": 1872, "to": null, "kind": "res", "label": "Osage Reservation (Oklahoma)", "poly": [[37.0,-97.05],[37.0,-96.0],[36.25,-96.0],[36.2,-96.5],[36.6,-97.05]]}
+ ]},
+
+{"id": "mandan", "name": "Mandanové", "en": "Mandan", "endonym": "Nueta („my lidé“)", "region": "plains", "family": "siouan", "lang": "siouxská rodina", "countries": "USA (Severní Dakota)", "lifeway": "zemědělci v opevněných vesnicích z hliněných domů",
+ "wikiEn": "Mandan", "wikiCs": null,
+ "flag": null,
+ "text": "Usedlí zemědělci a obchodníci z horního toku Missouri; v jejich vesnicích přezimovala výprava Lewise a Clarka. Epidemie neštovic roku 1837 národ téměř vyhubila – přeživší se spojili s Hidatsy a Arikary do Tří přidružených kmenů.",
+ "population": [{"year": 1780, "value": 3600, "note": "odhad (Mooney)"}, {"year": 1838, "value": 125, "note": "odhad po epidemii neštovic"}, {"year": 2010, "value": 1171, "approx": false, "note": "sčítání lidu USA"}],
+ "events": [{"year": 1738, "text": "La Vérendrye jako první Evropan navštěvuje mandanské vesnice."}, {"year": 1804, "text": "Lewis a Clark zimují ve Fort Mandan."}, {"year": 1837, "text": "Katastrofální epidemie neštovic."}, {"year": 1953, "text": "Přehrada Garrison zatopila úrodné údolí rezervace Fort Berthold."}],
+ "territories": [
+  {"from": null, "to": 1845, "kind": "home", "label": "Horní Missouri (ústí Heart a Knife River)", "poly": [[47.8,-102.0],[47.8,-100.3],[46.4,-100.2],[46.4,-101.6]]},
+  {"from": 1845, "to": null, "kind": "res", "label": "Fort Berthold (Severní Dakota)", "poly": [[48.1,-103.0],[48.1,-101.7],[47.4,-101.7],[47.4,-103.0]]}
+ ]},
+
+{"id": "assiniboine", "name": "Assiniboinové", "en": "Assiniboine", "endonym": "Nakoda / Nakota („spojenci“)", "aka": ["Nakotové", "Stoney"], "region": "plains", "family": "siouan", "lang": "siouxská rodina", "countries": "Kanada (Saskatchewan, Alberta), USA (Montana)", "lifeway": "lovci bizonů, obchodníci s kožešinami",
+ "wikiEn": "Assiniboine", "wikiCs": null,
+ "flag": null,
+ "text": "Národ, který se v 17. století oddělil od Siouxů a ve spojenectví s Krii („Železná konfederace“) ovládl obchod s kožešinami na severních pláních mezi Společností Hudsonova zálivu a kmeny dále na západě.",
+ "population": [{"year": 1780, "value": 10000, "note": "odhad (Mooney)"}, {"year": 1838, "value": 4000, "note": "odhad po epidemii neštovic"}, {"year": 2020, "value": 3500}],
+ "events": [{"year": 1640, "text": "První zmínka v jezuitských relacích."}, {"year": 1837, "text": "Epidemie neštovic."}, {"year": 1888, "text": "Zřízení rezervací Fort Peck a Fort Belknap v Montaně."}],
+ "territories": [
+  {"from": 1640, "to": 1888, "kind": "home", "label": "Severní pláně a parkland", "poly": [[52.0,-107.5],[52.0,-100.0],[49.5,-97.5],[48.0,-99.0],[47.8,-104.5],[48.3,-108.5],[50.0,-109.5]]},
+  {"from": 1888, "to": null, "kind": "res", "label": "Fort Peck (Montana)", "poly": [[48.9,-106.3],[48.9,-104.6],[48.0,-104.6],[48.0,-106.3]]}
+ ]},
+
+{"id": "cree", "name": "Kríové", "en": "Cree", "endonym": "Nēhiyawak / Eeyou / Ininiwak", "region": "subarctic", "family": "algic", "lang": "algonkinská rodina", "countries": "Kanada (od Québeku po Albertu), USA (Montana)", "lifeway": "lovci, rybáři a lovci kožešin; na západě lovci bizonů",
+ "wikiEn": "Cree", "wikiCs": "Kríové",
+ "flag": null,
+ "text": "Nejpočetnější původní národ Kanady, rozprostřený v pásu lesů od Labradoru po Skalnaté hory. Kríové byli hlavními partnery Společnosti Hudsonova zálivu; část se přesunula na pláně a stala se lovci bizonů. Kríjské slabičné písmo se používá dodnes.",
+ "population": [{"year": 1700, "value": 20000, "note": "hrubý odhad"}, {"year": 2016, "value": 356655, "approx": false, "note": "sčítání lidu Kanady"}],
+ "events": [{"year": 1670, "text": "Vznik Společnosti Hudsonova zálivu – Kríové se stávají prostředníky obchodu."}, {"year": 1885, "text": "Severozápadní povstání; náčelníci Poundmaker a Velký medvěd."}, {"year": 1975, "text": "Dohoda o zálivu James a severním Québeku – první moderní smlouva v Kanadě."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Lesy od zálivu James po Albertu", "labelAt": [54.0,-97.0], "poly": [[58.5,-94.5],[57.0,-92.3],[55.2,-85.0],[55.0,-82.3],[52.9,-82.2],[51.3,-80.5],[51.5,-79.5],[54.0,-79.5],[55.3,-77.7],[55.0,-73.0],[51.0,-72.0],[49.0,-75.0],[49.5,-82.0],[50.5,-88.0],[52.0,-93.0],[53.0,-99.0],[52.5,-106.0],[53.0,-112.0],[55.5,-115.5],[58.0,-112.0],[57.5,-104.0]]}
+ ]},
+
+{"id": "navajo", "name": "Navahové", "en": "Navajo", "endonym": "Diné („lidé“)", "region": "southwest", "family": "nadene", "lang": "na-dené (athabaská větev)", "countries": "USA (Arizona, Nové Mexiko, Utah)", "lifeway": "pastevci ovcí, tkalci, zemědělci; domy hogan",
+ "wikiEn": "Navajo", "wikiCs": "Navahové",
+ "flag": {"commons": "Navajo flag.svg", "caption": "Vlajka Navajo Nation (přijata 1968)"},
+ "text": "Dnes početně největší kmenový národ v USA s největší rezervací. Athabaští předkové přišli na jihozápad ze severu zhruba před 600 lety; od Pueblanů převzali tkaní a zemědělství, od Španělů ovce a koně. Navažští šifranti („code talkers“) sloužili ve druhé světové válce.",
+ "population": [{"year": 1680, "value": 8000, "note": "odhad (Mooney)"}, {"year": 1868, "value": 9000, "note": "odhad při návratu z internace"}, {"year": 1930, "value": 40000, "note": "odhad"}, {"year": 2021, "value": 399494, "approx": false, "note": "zapsaní občané Navajo Nation"}],
+ "events": [{"year": 1864, "text": "Dlouhý pochod – deportace do Bosque Redondo."}, {"year": 1868, "text": "Smlouva umožňuje návrat domů a zřizuje rezervaci."}, {"year": 1942, "text": "Navažští šifranti v americké námořní pěchotě."}],
+ "territories": [
+  {"from": 1400, "to": 1864, "kind": "home", "label": "Dinétah", "poly": [[37.3,-110.5],[37.3,-107.0],[35.5,-106.8],[34.8,-108.0],[35.0,-110.5],[36.0,-111.3]]},
+  {"from": 1864, "to": 1868, "kind": "moved", "label": "Internace v Bosque Redondo", "poly": [[34.65,-104.45],[34.65,-104.0],[34.3,-104.0],[34.3,-104.45]]},
+  {"from": 1868, "to": null, "kind": "res", "label": "Navajo Nation", "poly": [[37.0,-111.6],[37.2,-110.0],[37.0,-108.2],[36.2,-107.6],[35.3,-108.0],[35.1,-109.3],[35.2,-111.3],[36.3,-111.8]]}
+ ]},
+
+{"id": "apache", "name": "Apačové", "en": "Apache", "endonym": "Ndé / Inde („lidé“)", "aka": ["Čirikavové", "Mescalerové", "Jicarillové"], "region": "southwest", "family": "nadene", "lang": "na-dené (athabaská větev)", "countries": "USA (Arizona, Nové Mexiko, Oklahoma)", "lifeway": "lovci, sběrači a nájezdníci; chýše wickiup",
+ "wikiEn": "Apache", "wikiCs": "Apačové",
+ "flag": null,
+ "text": "Skupina příbuzných athabaských národů (Čirikavové, Mescalerové, Jicarillové, Západní Apačové, Lipanové). Čtvrt tisíciletí odolávali Španělům, Mexičanům i Američanům; kapitulací Geronima roku 1886 skončily indiánské války v USA.",
+ "population": [{"year": 1680, "value": 5000, "note": "odhad (Mooney)"}, {"year": 2010, "value": 111810, "approx": false, "note": "sčítání lidu USA"}],
+ "events": [{"year": 1861, "text": "Aféra Bascom – začátek válek s Cochisem."}, {"year": 1872, "text": "Zřízení rezervací San Carlos a Fort Apache."}, {"year": 1886, "text": "Geronimo se vzdává; Čirikavové deportováni na Floridu."}],
+ "territories": [
+  {"from": 1400, "to": 1886, "kind": "home", "label": "Apačerie", "poly": [[36.8,-105.8],[36.5,-103.5],[33.0,-102.8],[30.0,-103.5],[29.3,-106.0],[30.0,-109.5],[31.8,-111.0],[34.3,-111.2],[34.5,-108.5],[35.8,-107.0]]},
+  {"from": 1872, "to": null, "kind": "res", "label": "San Carlos a Fort Apache (Arizona)", "poly": [[34.3,-110.9],[34.3,-109.5],[33.0,-109.6],[33.0,-110.9]]},
+  {"from": 1873, "to": null, "kind": "res", "label": "Mescalero (Nové Mexiko)", "poly": [[33.42,-106.0],[33.42,-105.3],[32.95,-105.3],[32.95,-106.0]]},
+  {"from": 1887, "to": null, "kind": "res", "label": "Jicarilla (Nové Mexiko)", "poly": [[36.99,-107.4],[36.99,-106.8],[36.1,-106.9],[36.1,-107.4]]}
+ ]},
+
+{"id": "hopi", "name": "Hopiové", "en": "Hopi", "endonym": "Hopituh Shi-nu-mu („mírumilovní lidé“)", "region": "southwest", "family": "utoaztecan", "lang": "uto-aztécká rodina", "countries": "USA (Arizona)", "lifeway": "zemědělci pěstující kukuřici v poušti; kamenná puebla na stolových horách",
+ "wikiEn": "Hopi", "wikiCs": "Hopiové",
+ "flag": {"commons": "Flag of the Hopi.gif", "caption": "Vlajka kmene Hopi"},
+ "text": "Pueblanský národ ze stolových hor severovýchodní Arizony. Vesnice Oraibi, obývaná nepřetržitě nejméně od 12. století, patří k nejstarším sídlům v USA. Hopiové si uchovali obřadní cyklus kačinů a po povstání roku 1680 se už pod španělskou vládu nevrátili.",
+ "population": [{"year": 1775, "value": 7494, "approx": false, "note": "soupis otce Escalanta"}, {"year": 2010, "value": 19338, "approx": false, "note": "sčítání lidu USA"}],
+ "events": [{"year": 1540, "text": "První setkání se Španěly (Coronadova výprava)."}, {"year": 1680, "text": "Účast v povstání Pueblanů."}, {"year": 1882, "text": "Zřízení hopijské rezervace uvnitř území Navahů."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Hopitutskwa – stolové hory", "poly": [[36.25,-111.0],[36.25,-110.0],[35.55,-110.0],[35.55,-111.0]]}
+ ]},
+
+{"id": "zuni", "name": "Zuniové", "en": "Zuni", "endonym": "A:shiwi", "region": "southwest", "family": "pueblo", "lang": "izolovaný jazyk (zuni)", "countries": "USA (Nové Mexiko)", "lifeway": "zemědělci, šperkaři; mnohapatrová puebla",
+ "wikiEn": "Zuni people", "wikiCs": "Zuniové",
+ "flag": null,
+ "text": "Pueblanský národ s jazykem, který nemá žádné známé příbuzné. Jejich vesnice Hawikuh byla roku 1540 prvním „městem“ bájné Ciboly, které dobyl Coronado. V údolí řeky Zuni žijí nepřetržitě tisíce let.",
+ "population": [{"year": 1680, "value": 2500, "note": "odhad (Mooney)"}, {"year": 2020, "value": 10000}],
+ "events": [{"year": 1540, "text": "Coronado dobývá Hawikuh."}, {"year": 1680, "text": "Povstání Pueblanů – Zuniové se uchylují na stolovou horu Dowa Yalanne."}, {"year": 1877, "text": "Zřízení rezervace."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Údolí řeky Zuni", "poly": [[35.35,-109.05],[35.35,-108.45],[34.8,-108.45],[34.8,-109.05]]}
+ ]},
+
+{"id": "pueblo", "name": "Pueblané", "en": "Puebloans", "endonym": "Tiwa, Tewa, Towa, Keres", "aka": ["Pueblo", "Taos", "Acoma"], "region": "southwest", "family": "pueblo", "lang": "tanoské a keresanské jazyky", "countries": "USA (Nové Mexiko)", "lifeway": "zemědělci se zavlažováním; vícepatrové domy z adobe",
+ "wikiEn": "Puebloans", "wikiCs": "Pueblo",
+ "flag": {"note": "Devatenáct pueblí v Novém Mexiku má vlastní vlajky; společná vlajka neexistuje."},
+ "text": "Usedlí zemědělci z údolí Rio Grande, potomci stavitelů z Chaco Canyonu a Mesa Verde. Roku 1680 se pod vedením Popého vzbouřili a na dvanáct let vyhnali Španěly z Nového Mexika – šlo o nejúspěšnější indiánské povstání v dějinách Severní Ameriky.",
+ "population": [{"year": 1600, "value": 60000, "note": "odhad (40–80 tisíc)"}, {"year": 1700, "value": 14000, "note": "odhad po znovudobytí"}, {"year": 2020, "value": 75000}],
+ "events": [{"year": 1598, "text": "Juan de Oñate zakládá španělskou kolonii Nové Mexiko."}, {"year": 1680, "text": "Povstání Pueblanů."}, {"year": 1692, "text": "Španělské znovudobytí pod Diegem de Vargas."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Údolí Rio Grande", "poly": [[36.6,-106.3],[36.6,-105.4],[35.0,-105.8],[34.2,-106.5],[34.7,-107.8],[35.3,-107.5],[35.9,-106.8]]}
+ ]},
+
+{"id": "tohono", "name": "Papagové", "en": "Tohono O'odham", "endonym": "Tohono O'odham („lidé pouště“)", "region": "southwest", "family": "utoaztecan", "lang": "uto-aztécká rodina", "countries": "USA (Arizona), Mexiko (Sonora)", "lifeway": "pouštní zemědělci a sběrači plodů kaktusu saguaro",
+ "wikiEn": "Tohono Oʼodham", "wikiCs": null,
+ "flag": null,
+ "text": "Lid Sonorské pouště, dědicové kultury Hohokam. Gadsdenova koupě roku 1853 rozdělila jejich zemi státní hranicí mezi USA a Mexiko; dodnes se potýkají s tím, že hranice vede středem jejich území.",
+ "population": [{"year": 1680, "value": 6000, "note": "odhad (Mooney)"}, {"year": 2020, "value": 30000}],
+ "events": [{"year": 1687, "text": "Jezuita Eusebio Kino zakládá první misie."}, {"year": 1853, "text": "Gadsdenova koupě rozděluje území hranicí."}, {"year": 1916, "text": "Zřízení hlavní rezervace."}],
+ "territories": [
+  {"from": null, "to": 1853, "kind": "home", "label": "Papaguería", "poly": [[33.0,-113.5],[32.9,-111.3],[31.6,-110.8],[30.5,-111.5],[30.5,-113.0],[31.8,-113.8]]},
+  {"from": 1853, "to": null, "kind": "res", "label": "Tohono O'odham Nation (Arizona)", "poly": [[32.7,-112.8],[32.7,-111.5],[31.75,-111.35],[31.55,-111.65],[32.0,-113.0]]}
+ ]},
+
+{"id": "yaqui", "name": "Jakiové", "en": "Yaqui", "endonym": "Yoeme / Hiaki", "region": "aridamerica", "family": "utoaztecan", "lang": "uto-aztécká rodina", "countries": "Mexiko (Sonora), USA (Arizona)", "lifeway": "zemědělci v údolí řeky Yaqui",
+ "wikiEn": "Yaqui", "wikiCs": "Jakiové",
+ "flag": {"commons": "Flag of the Pascua Yaqui Tribe of Arizona.svg", "caption": "Vlajka kmene Pascua Yaqui (Arizona)"},
+ "text": "Národ z údolí řeky Yaqui v Sonoře, který roku 1533 odrazil první španělskou výpravu a svou autonomii hájil ve válkách s Mexikem až do roku 1929. Za diktatury Porfiria Díaze byly tisíce Jakiů deportovány na plantáže na Yucatánu; uprchlíci založili komunity v Arizoně.",
+ "population": [{"year": 1617, "value": 30000, "note": "odhad jezuitských misionářů"}, {"year": 2019, "value": 38652, "note": "Mexiko a USA"}],
+ "events": [{"year": 1533, "text": "Jakiové odrážejí výpravu Diega de Guzmána."}, {"year": 1617, "text": "Příchod jezuitů a vznik osmi misijních vesnic."}, {"year": 1900, "text": "Bitva u Mazocoby a masové deportace na Yucatán."}, {"year": 1978, "text": "Federální uznání kmene Pascua Yaqui v USA."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Údolí řeky Yaqui (Sonora)", "poly": [[28.6,-110.9],[28.6,-109.5],[27.3,-109.6],[27.2,-110.6],[27.9,-111.0]]},
+  {"from": 1964, "to": null, "kind": "res", "label": "Pascua Yaqui (Tucson, Arizona)", "poly": [[32.2,-111.2],[32.2,-110.98],[32.02,-110.98],[32.02,-111.2]]}
+ ]},
+
+{"id": "raramuri", "name": "Tarahumarové", "en": "Rarámuri / Tarahumara", "endonym": "Rarámuri („ti, kdo běží“)", "region": "aridamerica", "family": "utoaztecan", "lang": "uto-aztécká rodina", "countries": "Mexiko (Chihuahua)", "lifeway": "horští zemědělci a pastevci, vytrvalostní běžci",
+ "wikiEn": "Rarámuri", "wikiCs": "Tarahumarové",
+ "flag": {"commons": "Bandera Tarahumara.svg", "caption": "Vlajka Tarahumarů (Rarámuri)"},
+ "text": "Horalé ze Sierry Madre Occidental a Měděného kaňonu, kam ustoupili před španělskými kolonisty a horníky. Proslavili se schopností běhat stovky kilometrů v sandálech huaraches.",
+ "population": [{"year": 2010, "value": 85000, "note": "mluvčí jazyka podle mexického sčítání; odhady se výrazně liší"}],
+ "events": [{"year": 1607, "text": "První jezuitská misie."}, {"year": 1648, "text": "První z řady tarahumarských povstání proti Španělům."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Sierra Tarahumara", "poly": [[29.5,-108.5],[29.5,-106.3],[27.5,-106.0],[26.3,-106.8],[26.3,-108.3],[27.8,-108.9]]}
+ ]},
+
+{"id": "seri", "name": "Seriové", "en": "Seri", "endonym": "Comcáac", "region": "aridamerica", "family": "other", "lang": "izolovaný jazyk (seri)", "countries": "Mexiko (Sonora)", "lifeway": "pobřežní lovci, rybáři a sběrači",
+ "wikiEn": "Seri people", "wikiCs": null,
+ "flag": null,
+ "text": "Malý národ lovců a rybářů z pobřeží Kalifornského zálivu a ostrova Tiburón, mluvící jazykem bez známých příbuzných. Nikdy nepřijali zemědělství ani misijní život a přežili opakované vyhlazovací výpravy.",
+ "population": [{"year": 1930, "value": 200, "note": "odhad nejnižšího stavu (méně než 300)"}, {"year": 2006, "value": 1000}],
+ "events": [{"year": 1750, "text": "Španělská trestná výprava na ostrov Tiburón."}, {"year": 1975, "text": "Ostrov Tiburón uznán jako společný majetek Seriů."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Pobřeží Sonory a ostrov Tiburón", "poly": [[29.9,-112.9],[29.9,-111.6],[28.6,-111.3],[28.5,-112.6]]}
+ ]},
+
+{"id": "shoshone", "name": "Šošoni", "en": "Shoshone", "endonym": "Newe („lidé“)", "region": "plateau", "family": "utoaztecan", "lang": "uto-aztécká rodina", "countries": "USA (Wyoming, Idaho, Nevada, Utah)", "lifeway": "lovci a sběrači; na východě lovci bizonů na koních",
+ "wikiEn": "Shoshone", "wikiCs": "Šošoni",
+ "flag": null,
+ "text": "Národ Velké pánve a Skalnatých hor. Šošonka Sacagawea provázela výpravu Lewise a Clarka; náčelník Washakie udržel pro Východní Šošony rezervaci Wind River. Z jižní větve Šošonů vzešli Komančové.",
+ "population": [{"year": 1845, "value": 4500, "note": "odhad (Mooney)"}, {"year": 2000, "value": 12300}],
+ "events": [{"year": 1805, "text": "Sacagawea a výprava Lewise a Clarka."}, {"year": 1863, "text": "Masakr na Bear River – asi 250 mrtvých Šošonů."}, {"year": 1868, "text": "Smlouva z Fort Bridger zřizuje rezervace Wind River a Fort Hall."}],
+ "territories": [
+  {"from": null, "to": 1868, "kind": "home", "label": "Velká pánev a Skalnaté hory", "poly": [[45.5,-114.5],[45.0,-109.5],[43.5,-107.5],[41.5,-108.5],[40.5,-112.0],[38.5,-115.0],[37.0,-117.0],[38.5,-118.0],[41.5,-117.5],[43.5,-117.0]]},
+  {"from": 1868, "to": null, "kind": "res", "label": "Wind River (Wyoming)", "poly": [[43.65,-109.65],[43.65,-108.1],[42.7,-108.1],[42.7,-109.65]]},
+  {"from": 1868, "to": null, "kind": "res", "label": "Fort Hall (Idaho)", "poly": [[43.3,-112.8],[43.3,-112.0],[42.6,-112.0],[42.6,-112.8]]}
+ ]},
+
+{"id": "ute", "name": "Juteové", "en": "Ute", "endonym": "Núuchi-u („lidé“)", "region": "plateau", "family": "utoaztecan", "lang": "uto-aztécká rodina", "countries": "USA (Utah, Colorado)", "lifeway": "horští lovci a sběrači, od 17. století jezdci",
+ "wikiEn": "Ute people", "wikiCs": "Juteové",
+ "flag": null,
+ "text": "Horský národ Skalnatých hor, po němž je pojmenován stát Utah. Koně získali od Španělů mezi prvními; po objevu zlata a stříbra v Coloradu přišli téměř o všechna území.",
+ "population": [{"year": 1845, "value": 4500, "note": "odhad (Mooney)"}, {"year": 2010, "value": 7500, "note": "odhady 4 800–10 000"}],
+ "events": [{"year": 1868, "text": "Smlouva přiznává Juteům západní třetinu Colorada."}, {"year": 1879, "text": "Meekerův incident a válka na White River."}, {"year": 1881, "text": "Vyhnání většiny Juteů z Colorada do Utahu."}],
+ "territories": [
+  {"from": null, "to": 1881, "kind": "home", "label": "Skalnaté hory – Colorado a Utah", "poly": [[41.0,-112.0],[41.0,-106.0],[39.0,-104.8],[37.0,-105.0],[36.5,-107.0],[37.0,-110.0],[38.5,-112.5]]},
+  {"from": 1881, "to": null, "kind": "res", "label": "Uintah a Ouray (Utah)", "poly": [[40.8,-110.9],[40.8,-109.4],[39.6,-109.4],[39.6,-110.6]]},
+  {"from": 1881, "to": null, "kind": "res", "label": "Southern Ute a Ute Mountain (Colorado)", "poly": [[37.4,-109.05],[37.4,-107.2],[37.0,-107.2],[37.0,-109.05]]}
+ ]},
+
+{"id": "paiute", "name": "Pajutové", "en": "Northern Paiute", "endonym": "Numu („lidé“)", "region": "plateau", "family": "utoaztecan", "lang": "uto-aztécká rodina", "countries": "USA (Nevada, Oregon, Kalifornie, Idaho)", "lifeway": "lovci a sběrači polopouště (piniové oříšky, ryby, králíci)",
+ "wikiEn": "Northern Paiute people", "wikiCs": null,
+ "flag": null,
+ "text": "Lovci a sběrači z vyprahlé Velké pánve. Pajutský prorok Wovoka roku 1889 založil hnutí Tance duchů, které se rozšířilo mezi kmeny plání; Sarah Winnemucca byla první indiánskou ženou, která anglicky vydala knihu.",
+ "population": [{"year": 1845, "value": 7500, "note": "odhad (Mooney, všichni Pajutové)"}, {"year": 2010, "value": 13000, "note": "všichni Pajutové (severní i jižní) podle sčítání; přibližný údaj"}],
+ "events": [{"year": 1860, "text": "Válka u Pyramid Lake."}, {"year": 1883, "text": "Sarah Winnemucca vydává „Život mezi Pajuty“."}, {"year": 1889, "text": "Wovokova vize a vznik Tance duchů."}],
+ "territories": [
+  {"from": null, "to": 1874, "kind": "home", "label": "Západní Velká pánev", "poly": [[44.5,-121.0],[44.3,-117.5],[41.5,-117.3],[39.0,-117.2],[37.3,-117.8],[37.5,-119.0],[39.5,-120.0],[42.0,-121.0]]},
+  {"from": 1874, "to": null, "kind": "res", "label": "Pyramid Lake a Walker River (Nevada)", "poly": [[40.4,-119.85],[40.4,-119.2],[38.7,-118.5],[38.7,-119.0],[39.7,-119.85]]}
+ ]},
+
+{"id": "nezperce", "name": "Nez Perce", "en": "Nez Perce", "endonym": "Nimíipuu („lidé“)", "aka": ["Propíchnuté nosy"], "region": "plateau", "family": "pacific", "lang": "sahaptijská rodina", "countries": "USA (Idaho, Washington, Oregon)", "lifeway": "rybáři (losos), sběrači kamasie, chovatelé koní appaloosa",
+ "wikiEn": "Nez Perce", "wikiCs": "Nez Perce",
+ "flag": null,
+ "text": "Národ z Kolumbijské plošiny, proslulý chovem koní. Roku 1877 vedl náčelník Joseph svůj lid na téměř dvoutisícikilometrovém ústupu před armádou směrem do Kanady; vzdal se 60 km před hranicí slovy „už nikdy nebudu bojovat“.",
+ "population": [{"year": 1805, "value": 6000, "note": "odhad Lewise a Clarka"}, {"year": 2020, "value": 3500}],
+ "events": [{"year": 1805, "text": "Nez Perce zachraňují vyhladovělou výpravu Lewise a Clarka."}, {"year": 1863, "text": "„Zlodějská smlouva“ zmenšuje rezervaci o 90 %."}, {"year": 1877, "text": "Válka Nez Perce a ústup náčelníka Josepha."}],
+ "territories": [
+  {"from": null, "to": 1877, "kind": "home", "label": "Řeky Clearwater, Salmon a Snake", "poly": [[47.2,-118.2],[47.0,-114.6],[45.2,-114.4],[44.6,-116.5],[45.0,-118.3],[46.2,-118.8]]},
+  {"from": 1863, "to": null, "kind": "res", "label": "Nez Perce Reservation (Idaho)", "poly": [[46.6,-117.0],[46.6,-115.7],[45.9,-115.7],[45.9,-117.0]]}
+ ]},
+
+{"id": "chumash", "name": "Čumašové", "en": "Chumash", "endonym": "", "region": "california", "family": "pacific", "lang": "čumašské jazyky", "countries": "USA (Kalifornie)", "lifeway": "mořští rybáři a lovci, plaňkové kánoe tomol, korálkové peníze",
+ "wikiEn": "Chumash people", "wikiCs": null,
+ "flag": null,
+ "text": "Námořní národ z pobřeží u Santa Barbary a Channel Islands, s hustým osídlením, složitou společností a pozoruhodnými skalními malbami. Španělský misijní systém a zavlečené nemoci snížily jejich počet během století o více než 95 %.",
+ "population": [{"year": 1770, "value": 10000, "note": "odhad (10–20 tisíc)"}, {"year": 1900, "value": 200, "note": "odhad"}, {"year": 2010, "value": 2000, "note": "odhady 2–5 tisíc"}],
+ "events": [{"year": 1542, "text": "Cabrillo proplouvá kanálem Santa Barbara."}, {"year": 1772, "text": "Založení první z pěti misií na čumašském území."}, {"year": 1824, "text": "Čumašské povstání v misiích."}],
+ "territories": [
+  {"from": null, "to": 1901, "kind": "home", "label": "Pobřeží Santa Barbary a Channel Islands", "poly": [[35.6,-121.2],[35.4,-120.0],[34.9,-119.0],[34.05,-118.75],[33.9,-119.9],[34.0,-120.5],[34.5,-120.7]]},
+  {"from": 1901, "to": null, "kind": "res", "label": "Rezervace Santa Ynez", "poly": [[34.68,-120.2],[34.68,-119.98],[34.52,-119.98],[34.52,-120.2]]}
+ ]},
+
+{"id": "pomo", "name": "Pomové", "en": "Pomo", "endonym": "", "region": "california", "family": "pacific", "lang": "pomské jazyky", "countries": "USA (Kalifornie)", "lifeway": "sběrači žaludů, rybáři; mistrovské košíkářství",
+ "wikiEn": "Pomo", "wikiCs": null,
+ "flag": null,
+ "text": "Skupina příbuzných národů ze severní Kalifornie (Clear Lake, Russian River), jejichž košíky patří k nejjemnějším na světě. Roku 1850 americká armáda povraždila stovky Pomů na ostrově Bloody Island.",
+ "population": [{"year": 1770, "value": 8000, "note": "odhad"}, {"year": 1851, "value": 4000, "note": "odhad (3 500–5 000)"}, {"year": 1910, "value": 1200, "note": "odhad"}, {"year": 2010, "value": 10308, "approx": false, "note": "sčítání lidu USA"}],
+ "events": [{"year": 1812, "text": "Rusové zakládají Fort Ross na pomském pobřeží."}, {"year": 1850, "text": "Masakr na Bloody Island."}],
+ "territories": [
+  {"from": null, "to": 1856, "kind": "home", "label": "Clear Lake a Russian River", "poly": [[39.8,-123.9],[39.6,-122.6],[38.8,-122.5],[38.3,-122.7],[38.4,-123.2],[38.9,-123.8]]},
+  {"from": 1856, "to": null, "kind": "res", "label": "Pomské rancherie", "poly": [[39.35,-123.35],[39.35,-122.75],[38.85,-122.75],[38.85,-123.35]]}
+ ]},
+
+{"id": "tlingit", "name": "Tlingitové", "en": "Tlingit", "endonym": "Lingít („lidé přílivu“)", "region": "nwcoast", "family": "nadene", "lang": "na-dené", "countries": "USA (Aljaška), Kanada (Britská Kolumbie, Yukon)", "lifeway": "rybáři lososů a mořští lovci; totemy, potlač, klanové domy",
+ "wikiEn": "Tlingit", "wikiCs": "Tlingitové",
+ "flag": null,
+ "text": "Národ z fjordů a ostrovů jihovýchodní Aljašky s rozvinutým řezbářstvím a matrilineárními klany Havrana a Orla. Roku 1802 dobyli ruskou pevnost v Sitce a Rusům se nikdy plně nepodřídili.",
+ "population": [{"year": 1740, "value": 10000, "note": "odhad (Mooney)"}, {"year": 2020, "value": 24700, "note": "USA a Kanada"}],
+ "events": [{"year": 1802, "text": "Tlingitové dobývají ruskou pevnost u Sitky."}, {"year": 1804, "text": "Bitva u Sitky – Rusové pevnost získávají zpět."}, {"year": 1971, "text": "Zákon o vyrovnání nároků původních obyvatel Aljašky (ANCSA)."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Lingít Aaní – jihovýchodní Aljaška", "poly": [[60.0,-141.5],[59.8,-135.3],[58.0,-132.8],[55.9,-130.0],[54.7,-130.7],[54.75,-133.5],[56.5,-135.5],[58.3,-137.5],[59.5,-140.5]]}
+ ]},
+
+{"id": "haida", "name": "Haidové", "en": "Haida", "endonym": "X̱aayda / X̱aadas", "region": "nwcoast", "family": "pacific", "lang": "izolovaný jazyk (haida)", "countries": "Kanada (Britská Kolumbie), USA (Aljaška)", "lifeway": "mořeplavci ve velkých cedrových kánoích, řezbáři totemů",
+ "wikiEn": "Haida people", "wikiCs": "Haidové",
+ "flag": {"commons": "Flag of Haida Gwaii.svg", "caption": "Vlajka Haida Gwaii (Rada národa Haidů)"},
+ "text": "Obyvatelé souostroví Haida Gwaii, obávaní mořští nájezdníci a mistři řezby v cedru a argilitu. Epidemie neštovic roku 1862 zabila většinu národa. Roku 2024 uznala Britská Kolumbie haidské vlastnictví celého souostroví.",
+ "population": [{"year": 1780, "value": 10000, "note": "odhad (Mooney)"}, {"year": 1915, "value": 600, "note": "odhad"}, {"year": 2020, "value": 12500, "note": "Kanada a USA"}],
+ "events": [{"year": 1774, "text": "První kontakt se Španěly (Juan Pérez)."}, {"year": 1862, "text": "Epidemie neštovic."}, {"year": 2024, "text": "Dohoda o uznání haidského vlastnického práva k Haida Gwaii."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Haida Gwaii", "poly": [[54.3,-133.2],[54.3,-131.6],[52.9,-131.2],[51.9,-130.9],[51.9,-131.5],[53.0,-132.8]]},
+  {"from": 1700, "to": null, "kind": "home", "label": "Kaigani Haida (ostrov Prince of Wales, Aljaška)", "poly": [[55.4,-133.4],[55.4,-132.3],[54.72,-132.3],[54.72,-133.3]]}
+ ]},
+
+{"id": "kwakwakawakw", "name": "Kvakiutlové", "en": "Kwakwaka'wakw", "endonym": "Kwakwa̱ka̱ʼwakw („mluvící jazykem kwak'wala“)", "region": "nwcoast", "family": "pacific", "lang": "wakašská rodina", "countries": "Kanada (Britská Kolumbie)", "lifeway": "rybáři a mořští lovci; potlač, obřadní masky",
+ "wikiEn": "Kwakwakaʼwakw", "wikiCs": "Kvakiutlové",
+ "flag": null,
+ "text": "Národy severní části ostrova Vancouver a protějšího pobřeží, známé velkolepými obřady potlače a proměnlivými maskami. Kanada potlač v letech 1885–1951 zakazovala a obřadní předměty zabavovala.",
+ "population": [{"year": 1780, "value": 8000, "note": "odhad (4,5–19 tisíc)"}, {"year": 1929, "value": 1100, "note": "odhad"}, {"year": 2016, "value": 3665, "approx": false, "note": "sčítání lidu Kanady"}],
+ "events": [{"year": 1792, "text": "Setkání s výpravou George Vancouvera."}, {"year": 1885, "text": "Zákaz potlače."}, {"year": 1921, "text": "Zátah na Cranmerův potlač – zabavení masek a regálií."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Severní ostrov Vancouver a přilehlé pobřeží", "poly": [[51.4,-128.3],[51.3,-126.3],[50.6,-125.3],[50.0,-125.2],[50.0,-127.2],[50.4,-128.3]]}
+ ]},
+
+{"id": "coastsalish", "name": "Pobřežní Sališové", "en": "Coast Salish", "endonym": "", "aka": ["Squamish", "Lummi", "Duwamish"], "region": "nwcoast", "family": "pacific", "lang": "sališská rodina", "countries": "Kanada (Britská Kolumbie), USA (Washington)", "lifeway": "rybáři lososů, tkalci, stavitelé prkenných domů",
+ "wikiEn": "Coast Salish", "wikiCs": "Pobřežní Sališové",
+ "flag": null,
+ "text": "Desítky příbuzných národů kolem Sališského moře (Puget Sound, Georgijský průliv). Na jejich území dnes leží Vancouver, Victoria i Seattle – to nese jméno náčelníka Si'ahla z kmenů Duwamish a Suquamish.",
+ "population": [{"year": 2020, "value": 56700, "note": "Kanada a USA"}],
+ "events": [{"year": 1792, "text": "Výprava George Vancouvera mapuje Puget Sound."}, {"year": 1855, "text": "Smlouva z Point Elliott."}, {"year": 1974, "text": "Boldtovo rozhodnutí přiznává kmenům polovinu úlovku lososů."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Sališské moře", "poly": [[50.3,-125.3],[50.2,-123.6],[49.4,-121.5],[48.2,-121.5],[47.0,-122.0],[46.9,-123.3],[47.6,-124.3],[48.4,-124.6],[48.5,-123.6],[49.3,-124.6]]}
+ ]},
+
+{"id": "chinook", "name": "Činukové", "en": "Chinook", "endonym": "", "region": "nwcoast", "family": "pacific", "lang": "činucké jazyky", "countries": "USA (Washington, Oregon)", "lifeway": "rybáři lososů a zdatní obchodníci",
+ "wikiEn": "Chinookan peoples", "wikiCs": "Činukové",
+ "flag": null,
+ "text": "Obchodní národy z dolního toku řeky Columbia; jejich obchodní žargon (chinook jargon) se stal dorozumívacím jazykem celého severozápadu. Epidemie „horečky“ (malárie) v letech 1830–1833 zabila kolem 90 % obyvatel.",
+ "population": [{"year": 1780, "value": 22000, "note": "odhad pro všechny činucké skupiny (Mooney)"}, {"year": 2020, "value": 2700}],
+ "events": [{"year": 1805, "text": "Lewis a Clark zimují u ústí Columbie."}, {"year": 1830, "text": "Začátek ničivé epidemie malárie."}, {"year": 1851, "text": "Smlouvy z Tansy Point – Kongres je nikdy neratifikoval."}],
+ "territories": [
+  {"from": null, "to": 1855, "kind": "home", "label": "Dolní tok řeky Columbia", "poly": [[46.9,-124.1],[46.7,-122.6],[46.0,-121.3],[45.5,-121.3],[45.4,-122.8],[45.9,-124.0]]},
+  {"from": 1855, "to": null, "kind": "res", "label": "Chinook Indian Nation (Bay Center, Washington)", "poly": [[46.75,-124.08],[46.75,-123.8],[46.5,-123.8],[46.5,-124.08]]}
+ ]},
+
+{"id": "dene", "name": "Čipevajané", "en": "Chipewyan / Denesuline", "endonym": "Dënesųłı̨né", "aka": ["Dené"], "region": "subarctic", "family": "nadene", "lang": "na-dené (athabaská větev)", "countries": "Kanada (Severozápadní teritoria, Saskatchewan, Manitoba, Alberta)", "lifeway": "lovci karibu následující stáda mezi tajgou a tundrou",
+ "wikiEn": "Chipewyan", "wikiCs": "Čipevajané",
+ "flag": null,
+ "text": "Největší z národů Dené, lovci karibu z pomezí lesa a tundry západně od Hudsonova zálivu. Čipevajanka Thanadelthur roku 1715 zprostředkovala mír s Krii a otevřela obchod se Společností Hudsonova zálivu.",
+ "population": [{"year": 1670, "value": 3500, "note": "odhad (Mooney)"}, {"year": 2016, "value": 30910, "approx": false, "note": "sčítání lidu Kanady"}],
+ "events": [{"year": 1715, "text": "Thanadelthur zprostředkovává mír mezi Krii a Čipevajany."}, {"year": 1781, "text": "Epidemie neštovic."}, {"year": 1899, "text": "Smlouva č. 8."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Denendeh – mezi Hudsonovým zálivem a Velkým Otročím jezerem", "poly": [[63.5,-112.0],[63.0,-100.0],[60.0,-95.0],[58.8,-94.5],[57.5,-100.0],[57.0,-108.0],[57.5,-112.0],[60.0,-114.0]]}
+ ]},
+
+{"id": "innu", "name": "Innuové", "en": "Innu", "endonym": "Innu / Ilnu („člověk“)", "aka": ["Montagnais", "Naskapi"], "region": "subarctic", "family": "algic", "lang": "algonkinská rodina", "countries": "Kanada (Québec, Labrador)", "lifeway": "lovci karibu a kožešinové zvěře",
+ "wikiEn": "Innu", "wikiCs": null,
+ "flag": null,
+ "text": "Lovci karibu z východního Québeku a Labradoru (Nitassinan), v pramenech nazývaní Montagnais a Naskapi. Patřili k prvním spojencům Francouzů – roku 1603 je v Tadoussacu přijali ke spojenectví se Samuelem de Champlainem.",
+ "population": [{"year": 1600, "value": 5500, "note": "odhad (Mooney)"}, {"year": 2021, "value": 28960, "approx": false, "note": "sčítání lidu Kanady"}],
+ "events": [{"year": 1603, "text": "Spojenectví s Francouzi v Tadoussacu."}, {"year": 1967, "text": "Přesídlení labradorských Innuů do osady Davis Inlet."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Nitassinan", "poly": [[56.5,-64.5],[55.0,-60.5],[52.5,-56.5],[50.2,-59.5],[50.2,-66.5],[48.5,-69.5],[48.5,-72.5],[51.5,-73.0],[54.5,-69.0]]}
+ ]},
+
+{"id": "gwichin", "name": "Kučinové", "en": "Gwich'in", "endonym": "Dinjii Zhuh / Gwich'in („lidé místa“)", "region": "subarctic", "family": "nadene", "lang": "na-dené (athabaská větev)", "countries": "USA (Aljaška), Kanada (Yukon, Severozápadní teritoria)", "lifeway": "lovci karibu stáda Porcupine",
+ "wikiEn": "Gwichʼin", "wikiCs": "Kučinové",
+ "flag": null,
+ "text": "Nejsevernější indiánský národ Ameriky, žijící za polárním kruhem od řeky Yukon po deltu Mackenzie. Jejich život je spjat se stádem karibu Porcupine, jehož rodiště na aljašském pobřeží dlouhodobě brání před těžbou ropy.",
+ "population": [{"year": 1840, "value": 5400, "note": "odhad před epidemiemi"}, {"year": 2016, "value": 4400, "note": "podle sčítání v Kanadě a na Aljašce; Rada Gwich'in uvádí asi 9 000"}],
+ "events": [{"year": 1847, "text": "Společnost Hudsonova zálivu zakládá Fort Yukon."}, {"year": 1992, "text": "Dohoda o územních nárocích Gwich'in v Kanadě."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Povodí Porcupine a Peel", "poly": [[68.3,-146.5],[68.5,-138.0],[68.0,-133.5],[66.5,-133.0],[65.5,-137.0],[65.8,-145.0],[66.5,-147.5]]}
+ ]},
+
+{"id": "beothuk", "name": "Beothukové", "en": "Beothuk", "endonym": "Beothuk („lidé“)", "region": "subarctic", "family": "other", "lang": "izolovaný jazyk (beothuk)", "countries": "—", "lifeway": "lovci karibu a tuleňů; tělo a nářadí barvili červeným okrem",
+ "wikiEn": "Beothuk", "wikiCs": null,
+ "flag": {"note": "Národ vymřel roku 1829 – vlajku neměl."},
+ "text": "Původní obyvatelé Newfoundlandu, kteří si tělo natírali červeným okrem – snad právě podle nich vzniklo označení „rudí indiáni“. Evropští rybáři je odřízli od pobřeží; hlad, tuberkulóza a násilí vedly k jejich zániku. Poslední známá Beothučka Shanawdithit zemřela roku 1829.",
+ "population": [{"year": 1500, "value": 1000, "note": "odhad (500–2 000)"}, {"year": 1811, "value": 72, "approx": false, "note": "podle svědectví Shanawdithit"}, {"year": 1829, "value": 0, "approx": false, "note": "smrt Shanawdithit, poslední známé Beothučky"}],
+ "events": [{"year": 1497, "text": "John Cabot připlouvá k Newfoundlandu."}, {"year": 1819, "text": "Zajetí Demasduit."}, {"year": 1829, "text": "Umírá Shanawdithit."}],
+ "territories": [
+  {"from": null, "to": 1829, "kind": "home", "label": "Newfoundland", "poly": [[51.5,-56.0],[49.7,-53.5],[47.6,-52.7],[46.7,-53.5],[47.6,-59.3],[49.5,-58.5],[51.3,-56.8]]}
+ ]},
+
+{"id": "inuit", "name": "Inuité", "en": "Inuit", "endonym": "Inuit („lidé“)", "aka": ["Eskymáci", "Iñupiat", "Inuvialuit"], "region": "arctic", "family": "eskaleut", "lang": "eskymácko-aleutská rodina", "countries": "Kanada (Nunavut, Nunavik, Nunatsiavut, Severozápadní teritoria), USA (Aljaška), Grónsko", "lifeway": "lovci mořských savců a karibu; iglú, kajaky, psí spřežení",
+ "wikiEn": "Inuit", "wikiCs": "Inuité",
+ "flag": {"commons": "Flag of Nunavut.svg", "caption": "Vlajka kanadského teritoria Nunavut (1999) s inuitským inuksukem"},
+ "text": "Obyvatelé Arktidy od Aljašky po Grónsko, potomci thulské kultury, která se kolem roku 1000–1200 rozšířila z Aljašky na východ. Nejsou „indiáni“, ale samostatná skupina původních obyvatel. Roku 1999 vzniklo v Kanadě teritorium Nunavut („naše země“).",
+ "population": [{"year": 2021, "value": 87600, "note": "Kanada (70 540) a USA (17 067); včetně Grónska asi 155 tisíc"}],
+ "events": [{"year": "~1000", "text": "Thulští předkové Inuitů se šíří z Aljašky na východ."}, {"year": 1576, "text": "Setkání s výpravou Martina Frobishera."}, {"year": 1953, "text": "Nucené přesídlení rodin do vysoké Arktidy."}, {"year": 1999, "text": "Vznik teritoria Nunavut."}],
+ "territories": [
+  {"from": null, "to": 1200, "kind": "home", "label": "Thulští předkové Inuitů (severní Aljaška)", "poly": [[71.3,-156.8],[70.2,-141.0],[68.6,-141.0],[68.5,-156.0],[66.3,-161.5],[66.8,-164.5],[68.9,-166.2]]},
+  {"from": 1200, "to": null, "kind": "home", "label": "Inuit Nunangat a severní Aljaška", "labelAt": [67.5,-98.0], "poly": [[71.3,-156.8],[70.2,-141.0],[69.6,-133.0],[70.5,-125.0],[73.5,-120.0],[76.0,-110.0],[76.5,-90.0],[73.5,-78.0],[70.0,-68.0],[66.5,-61.5],[62.5,-64.5],[60.3,-64.5],[56.0,-60.5],[55.0,-59.5],[56.5,-62.5],[58.5,-66.0],[59.0,-70.0],[57.0,-76.0],[56.3,-77.5],[60.0,-80.0],[63.0,-82.0],[63.5,-88.0],[61.0,-94.5],[64.5,-96.0],[66.5,-102.0],[66.5,-110.0],[67.5,-118.0],[68.3,-128.0],[68.6,-141.0],[68.5,-156.0],[66.3,-161.5],[66.8,-164.5],[68.9,-166.2]]}
+ ]},
+
+{"id": "aleut", "name": "Aleuti", "en": "Aleut / Unangan", "endonym": "Unangax̂", "region": "arctic", "family": "eskaleut", "lang": "eskymácko-aleutská rodina", "countries": "USA (Aljaška), Rusko (Komandorské ostrovy)", "lifeway": "mořští lovci v kajacích baidarka",
+ "wikiEn": "Aleuts", "wikiCs": "Aleuti",
+ "flag": null,
+ "text": "Mořští lovci z Aleutských ostrovů. Ruští lovci kožešin je po roce 1741 nutili lovit mořské vydry; násilí a nemoci snížily jejich počet o více než 80 %. Za druhé světové války byli Aleuti nuceně evakuováni a internováni.",
+ "population": [{"year": 1741, "value": 16000, "note": "odhad (12–25 tisíc)"}, {"year": 1910, "value": 1500, "note": "odhad"}, {"year": 2010, "value": 7200, "note": "USA a Rusko"}],
+ "events": [{"year": 1741, "text": "Beringova výprava – začátek ruského lovu kožešin."}, {"year": 1763, "text": "Aleutské povstání na Liščích ostrovech."}, {"year": 1942, "text": "Japonská okupace Attu a nucená evakuace Aleutů."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Aleutské ostrovy", "poly": [[55.6,-160.5],[54.3,-162.5],[53.0,-168.5],[51.6,-177.0],[51.2,-179.5],[52.3,-179.5],[53.5,-169.5],[54.9,-164.5],[56.0,-161.0]]}
+ ]},
+
+{"id": "yupik", "name": "Jupikové", "en": "Yup'ik", "endonym": "Yup'ik / Yupiit („skuteční lidé“)", "region": "arctic", "family": "eskaleut", "lang": "eskymácko-aleutská rodina", "countries": "USA (Aljaška), Rusko (Čukotka)", "lifeway": "rybáři lososů, lovci tuleňů a mrožů",
+ "wikiEn": "Yupik peoples", "wikiCs": null,
+ "flag": null,
+ "text": "Příbuzní Inuitů z jihozápadní Aljašky (delta Yukonu a Kuskokwimu) a z ruské Čukotky. Středoaljašská jupičtina je dnes nejrozšířenějším původním jazykem Aljašky.",
+ "population": [{"year": 2010, "value": 35567, "note": "Aljaška a Rusko"}],
+ "events": [{"year": 1833, "text": "Rusové zakládají obchodní stanici St. Michael."}, {"year": 1971, "text": "Zákon ANCSA zřizuje regionální korporace původních obyvatel."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Delta Yukonu a Kuskokwimu, Bristolský záliv", "poly": [[64.5,-161.0],[63.0,-159.0],[61.0,-156.5],[59.0,-155.5],[57.5,-156.8],[58.6,-161.8],[59.8,-164.2],[61.5,-166.3],[63.2,-164.8]]}
+ ]},
+
+{"id": "aztec", "name": "Aztékové", "en": "Aztecs / Mexica (Nahua)", "endonym": "Mēxihcah; dnes Nāhuah", "aka": ["Mexikové", "Nahuové"], "region": "mesoamerica", "family": "utoaztecan", "lang": "uto-aztécká rodina (nahuatl)", "countries": "Mexiko", "lifeway": "městská civilizace; zemědělství na umělých ostrovech chinampas",
+ "wikiEn": "Aztecs", "wikiCs": "Aztékové",
+ "flag": {"note": "Aztécká říše vlajku v dnešním smyslu neměla; orel na kaktusu z mexické vlajky vychází z pověsti o založení Tenochtitlánu."},
+ "text": "Mexikové z ostrovního města Tenochtitlán vytvořili ve spojenectví s městy Texcoco a Tlacopan říši, která kolem roku 1519 ovládala většinu středního Mexika. Roku 1521 ji dobyl Hernán Cortés s desetitisíci domorodých spojenců. Jejich potomci Nahuové jsou dnes nejpočetnějším původním národem Mexika.",
+ "population": [{"year": 1519, "value": 5500000, "note": "odhad počtu obyvatel říše (5–6 milionů); Tenochtitlán měl asi 200 tisíc"}, {"year": 2020, "value": 2700000, "note": "Nahuové v Mexiku"}],
+ "events": [{"year": 1325, "text": "Založení Tenochtitlánu."}, {"year": 1428, "text": "Vznik Trojspolku – počátek říše."}, {"year": 1519, "text": "Cortés vstupuje do Tenochtitlánu."}, {"year": 1521, "text": "Pád Tenochtitlánu."}],
+ "territories": [
+  {"from": 1428, "to": 1521, "kind": "state", "label": "Aztécká říše (Trojspolek)", "poly": [[21.5,-98.3],[20.5,-97.0],[19.0,-96.0],[18.0,-95.0],[16.5,-95.0],[16.0,-97.5],[17.0,-100.5],[18.5,-102.0],[19.7,-100.3],[20.5,-99.6]]},
+  {"from": 1521, "to": null, "kind": "home", "label": "Oblasti Nahuů ve středním Mexiku", "poly": [[21.3,-99.0],[21.0,-97.5],[19.0,-96.8],[17.5,-98.0],[17.6,-99.8],[19.0,-99.6],[20.0,-99.3]]}
+ ]},
+
+{"id": "maya", "name": "Mayové", "en": "Maya", "endonym": "", "region": "mesoamerica", "family": "mayan", "lang": "mayská rodina", "countries": "Mexiko, Guatemala, Belize, Honduras", "lifeway": "zemědělci (kukuřice); městské státy, písmo, kalendář",
+ "wikiEn": "Maya peoples", "wikiCs": "Mayové",
+ "flag": null,
+ "text": "Civilizace městských států s vlastním písmem a astronomií, jejíž klasické období vrcholilo v letech 250–900. Mayové nikdy nezmizeli: poslední nezávislé království Nojpetén padlo až roku 1697 a miliony Mayů dnes žijí na Yucatánu, v Chiapasu a Guatemale.",
+ "population": [{"year": 2022, "value": 11000000, "note": "Guatemala, Mexiko a další země"}],
+ "events": [{"year": 1524, "text": "Španělé dobývají guatemalskou vysočinu."}, {"year": 1697, "text": "Pád Nojpeténu, posledního mayského království."}, {"year": 1847, "text": "Kastovní válka na Yucatánu (do 1901)."}, {"year": 1994, "text": "Zapatistické povstání v Chiapasu."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Mayská oblast", "poly": [[21.6,-90.3],[21.5,-87.0],[18.5,-87.6],[16.0,-88.8],[14.5,-89.3],[14.0,-91.5],[15.0,-92.8],[16.8,-93.5],[18.5,-92.3],[19.5,-90.8]]}
+ ]},
+
+{"id": "purepecha", "name": "Purépečové", "en": "Purépecha / Tarascans", "endonym": "P'urhépecha", "aka": ["Taraskové"], "region": "mesoamerica", "family": "other", "lang": "izolovaný jazyk (purépecha)", "countries": "Mexiko (Michoacán)", "lifeway": "zemědělci a rybáři u jezera Pátzcuaro; kovotepci",
+ "wikiEn": "Purépecha", "wikiCs": "Purépečové",
+ "flag": {"commons": "Bandera purépecha.svg", "caption": "Vlajka Purépečů (od roku 1980)"},
+ "text": "Tarascká říše se sídlem v Tzintzuntzanu byla jediným státem, který Aztékové nikdy neporazili – i díky bronzovým zbraním. Španělům se roku 1530 podrobila bez velké války.",
+ "population": [{"year": 1520, "value": 1000000, "note": "odhad obyvatel říše (0,75–1,5 milionu)"}, {"year": 2022, "value": 544010, "approx": false}],
+ "events": [{"year": 1478, "text": "Drtivá porážka aztéckého vojska."}, {"year": 1530, "text": "Španělé popravují posledního vládce (cazonci) Tangaxuana II."}],
+ "territories": [
+  {"from": 1350, "to": 1530, "kind": "state", "label": "Tarascká říše", "poly": [[20.6,-103.0],[20.3,-100.5],[18.8,-100.6],[18.0,-101.5],[18.3,-103.2],[19.5,-103.5]]},
+  {"from": 1530, "to": null, "kind": "home", "label": "Purépecha (Michoacán)", "poly": [[20.0,-102.5],[20.0,-101.3],[19.2,-101.3],[19.2,-102.5]]}
+ ]},
+
+{"id": "zapotec", "name": "Zapotékové", "en": "Zapotec", "endonym": "Bën za („lidé oblaků“)", "region": "mesoamerica", "family": "otomanguean", "lang": "otomangská rodina", "countries": "Mexiko (Oaxaca)", "lifeway": "zemědělci; městská civilizace Monte Albánu",
+ "wikiEn": "Zapotec peoples", "wikiCs": "Zapotékové",
+ "flag": null,
+ "text": "Jedna z nejstarších civilizací Mezoameriky – jejich hlavní město Monte Albán vzniklo kolem roku 500 př. n. l. a zapotécké písmo patří k nejstarším v Americe. Zapotékem byl i mexický prezident Benito Juárez.",
+ "population": [{"year": 1500, "value": 350000, "note": "hrubý odhad"}, {"year": 2020, "value": 525000, "note": "odhady 400–650 tisíc"}],
+ "events": [{"year": 1521, "text": "Podrobení Španělům."}, {"year": 1858, "text": "Zapoték Benito Juárez se stává prezidentem Mexika."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Údolí Oaxaca a Tehuantepecká šíje", "poly": [[17.8,-97.1],[17.8,-95.6],[16.3,-94.7],[15.8,-96.0],[16.2,-97.1]]}
+ ]},
+
+{"id": "mixtec", "name": "Mixtékové", "en": "Mixtec", "endonym": "Ñuu Savi („lid deště“)", "region": "mesoamerica", "family": "otomanguean", "lang": "otomangská rodina", "countries": "Mexiko (Oaxaca, Guerrero, Puebla)", "lifeway": "zemědělci; proslulí zlatníci a malíři kodexů",
+ "wikiEn": "Mixtec", "wikiCs": null,
+ "flag": null,
+ "text": "„Lid deště“ z hornaté západní Oaxaky, rozdělený do mnoha malých království. Mixtécké obrázkové kodexy zaznamenávají rodokmeny vládců až do 10. století, mezi nimi slavného dobyvatele Osm Jelena „Jaguářího spáru“.",
+ "population": [{"year": 2020, "value": 830000}],
+ "events": [{"year": 1063, "text": "Narození vládce Osm Jelena, sjednotitele Mixtéků."}, {"year": 1522, "text": "Španělské dobytí."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "La Mixteca", "poly": [[18.4,-98.6],[18.4,-97.15],[16.9,-97.15],[15.9,-97.3],[16.2,-98.6],[17.3,-98.9]]}
+ ]},
+
+{"id": "otomi", "name": "Otomiové", "en": "Otomi", "endonym": "Hñähñu", "region": "mesoamerica", "family": "otomanguean", "lang": "otomangská rodina", "countries": "Mexiko (Hidalgo, Querétaro, Estado de México)", "lifeway": "zemědělci náhorní plošiny (kukuřice, agáve)",
+ "wikiEn": "Otomi", "wikiCs": "Otomiové",
+ "flag": null,
+ "text": "Jedni z nejstarších obyvatel centrální mexické vysočiny, usazení zde dávno před příchodem Aztéků, kterým později platili tribut. Po roce 1521 se jako spojenci Španělů podíleli na osidlování severu.",
+ "population": [{"year": 2015, "value": 667000}],
+ "events": [{"year": 1531, "text": "Otomijský náčelník Conín zakládá Querétaro."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Centrální vysočina", "poly": [[21.2,-100.3],[21.0,-98.5],[19.8,-98.3],[19.2,-99.5],[19.6,-100.4]]}
+ ]},
+
+{"id": "totonac", "name": "Totonakové", "en": "Totonac", "endonym": "Tutunakú", "region": "mesoamerica", "family": "other", "lang": "totonacká rodina", "countries": "Mexiko (Veracruz, Puebla)", "lifeway": "zemědělci; pěstitelé vanilky",
+ "wikiEn": "Totonac", "wikiCs": null,
+ "flag": null,
+ "text": "Obyvatelé pobřeží Mexického zálivu, stavitelé města El Tajín a první pěstitelé vanilky. Roku 1519 se v Cempoale jako první spojili s Cortésem proti Aztékům. Dodnes provozují obřad „létajících mužů“ (voladores).",
+ "population": [{"year": 2010, "value": 411266, "approx": false}],
+ "events": [{"year": 1519, "text": "Spojenectví vládce Cempoaly s Cortésem."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Totonacapan", "poly": [[20.9,-97.9],[20.7,-97.0],[19.8,-96.4],[19.4,-96.6],[19.8,-97.7]]}
+ ]},
+
+{"id": "huichol", "name": "Huičolové", "en": "Huichol / Wixárika", "endonym": "Wixáritari", "region": "aridamerica", "family": "utoaztecan", "lang": "uto-aztécká rodina", "countries": "Mexiko (Jalisco, Nayarit, Zacatecas, Durango)", "lifeway": "horští zemědělci; poutě za peyotlem, obrazy z příze a korálků",
+ "wikiEn": "Huichol", "wikiCs": null,
+ "flag": null,
+ "text": "Horský národ ze Sierry Madre Occidental, který si díky odlehlosti uchoval předkřesťanské náboženství. Každoročně putují stovky kilometrů do pouště Wirikuta pro posvátný kaktus peyotl.",
+ "population": [{"year": 2003, "value": 43929, "approx": false}],
+ "events": [{"year": 1722, "text": "Španělé si podrobují sousední Nayarit; Huičolové si drží faktickou autonomii."}],
+ "territories": [
+  {"from": null, "to": null, "kind": "home", "label": "Sierra Huichola", "poly": [[23.0,-104.9],[23.0,-103.6],[21.6,-103.6],[21.6,-104.7]]}
+ ]},
+
+{"id": "mississippian", "name": "Mississippská kultura", "en": "Mississippian culture", "endonym": "", "aka": ["Cahokia", "stavitelé mohyl"], "region": "southeast", "family": "other", "lang": "neznámé (zřejmě siouxské, muskogejské a další)", "countries": "USA (povodí Mississippi a jihovýchod)", "lifeway": "pěstitelé kukuřice; města s plošinovými mohylami a náčelnictví",
+ "wikiEn": "Mississippian culture", "wikiCs": "Mississippská kultura",
+ "flag": {"note": "Archeologická kultura – vlajku neměla."},
+ "text": "Největší předkolumbovská civilizace severně od Mexika. Její centrum Cahokia u dnešního St. Louis mělo kolem roku 1100 víc obyvatel než tehdejší Londýn a Mnichovu mohylu vyšší než desetipatrový dům. Dědici této kultury jsou Kríkové, Čoktové, Čikasavové, Načezové a další národy jihovýchodu.",
+ "population": [{"year": 1100, "value": 15000, "note": "odhad pro samotnou Cahokii (10–20 tisíc)"}],
+ "events": [{"year": "~800", "text": "Počátky kultury se zaváděním pěstování kukuřice."}, {"year": "~1050", "text": "Prudký rozmach Cahokie („velký třesk“)."}, {"year": "~1350", "text": "Cahokia je opuštěna."}, {"year": 1540, "text": "De Sotova výprava potkává poslední velká náčelnictví; epidemie je pak rozvracejí."}],
+ "territories": [
+  {"from": 800, "to": 1600, "kind": "home", "label": "Povodí Mississippi, Ohia a Tennessee", "poly": [[39.5,-91.5],[39.0,-88.0],[37.5,-86.0],[35.5,-84.5],[33.0,-84.5],[31.5,-87.0],[31.0,-91.0],[32.5,-93.5],[35.5,-93.5],[38.0,-92.5]]}
+ ]},
+
+{"id": "anasazi", "name": "Předkové Pueblanů", "en": "Ancestral Puebloans", "endonym": "", "aka": ["Anasaziové", "Chaco", "Mesa Verde"], "region": "southwest", "family": "pueblo", "lang": "předchůdci pueblanských jazyků", "countries": "USA (Colorado, Utah, Arizona, Nové Mexiko)", "lifeway": "zemědělci; kamenná „velká sídla“ a skalní města",
+ "wikiEn": "Ancestral Puebloans", "wikiCs": "Anasaziové",
+ "flag": {"note": "Archeologická kultura – vlajku neměla."},
+ "text": "Stavitelé velkých kamenných sídel v kaňonu Chaco a skalních měst v Mesa Verde. Po velkém suchu na konci 13. století oblast Čtyř rohů opustili a přesunuli se k Rio Grande a na hopijské stolové hory – jejich potomky jsou dnešní Pueblané, Hopiové a Zuniové. Starší označení Anasazi pochází z navažštiny a Pueblané je odmítají.",
+ "population": [{"year": 1250, "value": 20000, "note": "hrubý odhad jen pro oblast Mesa Verde"}],
+ "events": [{"year": "~850", "text": "Začátek stavby velkých sídel v kaňonu Chaco (Pueblo Bonito)."}, {"year": "~1150", "text": "Úpadek Chaca po dlouhém suchu."}, {"year": "~1200", "text": "Skalní města v Mesa Verde (Cliff Palace)."}, {"year": 1276, "text": "Začátek „velkého sucha“ (do 1299) a odchod z oblasti Čtyř rohů."}],
+ "territories": [
+  {"from": 700, "to": 1300, "kind": "home", "label": "Oblast Čtyř rohů (Chaco, Mesa Verde)", "poly": [[38.0,-111.5],[38.0,-107.5],[36.5,-106.8],[35.2,-107.5],[35.0,-110.5],[36.0,-112.0]]}
+ ]},
+
+{"id": "hohokam", "name": "Kultura Hohokam", "en": "Hohokam", "endonym": "", "region": "southwest", "family": "other", "lang": "neznámý (snad předchůdce jazyka O'odham)", "countries": "USA (Arizona)", "lifeway": "pouštní zemědělci s rozsáhlou sítí zavlažovacích kanálů",
+ "wikiEn": "Hohokam", "wikiCs": null,
+ "flag": {"note": "Archeologická kultura – vlajku neměla."},
+ "text": "Zemědělci z údolí řek Salt a Gila, kteří vybudovali stovky kilometrů zavlažovacích kanálů – největší v předkolumbovské Severní Americe; část jejich tras dnes kopírují kanály města Phoenix. Za jejich potomky se považují O'odhamové (Papagové a Pimové).",
+ "population": [{"year": 1300, "value": 40000, "note": "hrubý odhad (údolí Salt a Gila)"}],
+ "events": [{"year": "~1100", "text": "Vrchol kanálové sítě a míčových hřišť."}, {"year": "~1350", "text": "Stavba „Velkého domu“ v Casa Grande."}, {"year": "~1450", "text": "Zánik kultury po povodních a suchu."}],
+ "territories": [
+  {"from": 300, "to": 1450, "kind": "home", "label": "Údolí řek Salt a Gila", "poly": [[33.9,-113.0],[33.9,-111.0],[32.6,-110.5],[32.0,-111.2],[32.4,-113.0]]}
+ ]},
+
+{"id": "toltec", "name": "Toltékové", "en": "Toltecs", "endonym": "", "region": "mesoamerica", "family": "utoaztecan", "lang": "uto-aztécká rodina (nahuatl)", "countries": "Mexiko (Hidalgo)", "lifeway": "městská civilizace s centrem v Tule (Tollan)",
+ "wikiEn": "Toltec", "wikiCs": "Toltékové",
+ "flag": {"note": "Předkolumbovská civilizace – vlajku neměla."},
+ "text": "Civilizace s hlavním městem Tula, proslulým sloupy v podobě válečníků („atlanti“). Aztékové Toltéky uctívali jako své kulturní předky a slovo „toltecatl“ pro ně znamenalo mistra řemesla. Rozsah skutečné toltécké moci je mezi historiky sporný.",
+ "population": [{"year": 1000, "value": 40000, "note": "odhad pro město Tula (30–60 tisíc)"}],
+ "events": [{"year": "~900", "text": "Vzestup Tuly."}, {"year": "~1150", "text": "Vypálení a opuštění Tuly."}],
+ "territories": [
+  {"from": 900, "to": 1170, "kind": "state", "label": "Toltécká oblast kolem Tuly", "poly": [[21.0,-100.3],[21.0,-98.3],[19.2,-98.0],[18.9,-99.6],[19.6,-100.5]]}
+ ]},
+
+{"id": "dorset", "name": "Dorsetská kultura", "en": "Dorset culture", "endonym": "Tuniit (inuitské označení)", "region": "arctic", "family": "other", "lang": "neznámý", "countries": "Kanada (Nunavut, Nunavik, Labrador), Grónsko", "lifeway": "lovci tuleňů a mrožů na mořském ledu; bez luků a psích spřežení",
+ "wikiEn": "Dorset culture", "wikiCs": "Dorsetská kultura",
+ "flag": {"note": "Archeologická kultura – vlajku neměla."},
+ "text": "Obyvatelé východní Arktidy před příchodem Inuitů. Inuitské pověsti je líčí jako Tuniity – silné, ale plaché obry. Mezi lety 1200 a 1500 je vystřídali thulští předkové Inuitů přicházející z Aljašky; genetické studie ukazují, že se obě skupiny téměř nemísily.",
+ "population": [],
+ "events": [{"year": "~500 př. n. l.", "text": "Vznik kultury."}, {"year": "~1000", "text": "Možná setkání s Vikingy („Skrælingové“ ság)."}, {"year": "~1300", "text": "Zánik na většině území po příchodu Thulů."}],
+ "territories": [
+  {"from": null, "to": 1300, "kind": "home", "label": "Východní Arktida", "poly": [[73.5,-95.0],[73.5,-78.0],[70.0,-68.0],[66.5,-61.5],[62.5,-64.5],[60.3,-64.5],[58.5,-66.0],[60.0,-78.0],[63.0,-82.0],[64.5,-90.0],[68.0,-97.0]]}
+ ]}
+
+]
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2" width="1e3" height="500" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata id="metadata1">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="layer1">
+  <g id="g2">
+   <rect id="rect1" width="1e3" height="500" style="fill:#ffffff"/>
+   <rect id="rect2" transform="rotate(90)" x="30" y="-317.366" width="440" height="100" style="fill:#ff0000"/>
+   <path id="path1" transform="matrix(1.0787 .104259 -.104259 1.0787 -13.8184 -11.2046)" d="m183.024 122.016-55.065-13.0625-27.3353 49.5536-4.59279-56.4064-55.5754-10.6845 52.2264-21.7986-7.01219-56.157 36.8705 42.9342 51.2416-24.0224-29.4391 48.3334z" style="fill:#ff0000"/>
+   <g id="g1" transform="rotate(-90,500,0)">
+    <ellipse id="path2" transform="rotate(90)" cx="-390.006" cy="-102.544" rx="78.229" ry="78.2285" style="fill:#ff0000"/>
+    <ellipse id="path3" transform="rotate(90)" cx="-390.71" cy="-134.963" rx="78.229" ry="78.2285" style="fill:#ffffff"/>
+   </g>
+   <rect id="rect3" x="30" y="200" width="940" height="100" style="fill:#ff0000"/>
+  </g>
+ </g>
+</svg>

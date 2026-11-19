@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Native Land – interaktivní mapa</title>
+  <meta name="description" content="Interaktivní historická mapa území indiánských kmenů a původních národů USA, Kanady a Mexika s časovou osou.">
+  <meta name="theme-color" content="#1b2a4a">
+  <link rel="icon" type="image/png" href="media/favicon.png">
+  <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Native Land">
+  <link rel="stylesheet" href="vendor/fonts/cinzel.css">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="style.css?v=21">
+</head>
+<body>
+  <aside id="sidebar">
+    <header class="brand">
+      <h1>Native <span>Land</span></h1>
+      <p class="tagline" data-i18n="tagline"></p>
+    </header>
+
+    <section id="list-view">
+      <div class="list-tools">
+        <label class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+          <input id="search" type="search" autocomplete="off">
+        </label>
+        <div class="seg" role="group">
+          <button type="button" id="show-all" aria-pressed="true" data-i18n="filterAll"></button>
+          <button type="button" id="show-visible" aria-pressed="false"></button>
+        </div>
+        <button type="button" id="fam-btn" class="fam-btn" aria-expanded="false" aria-controls="fam-panel"></button>
+        <div id="fam-panel" hidden>
+          <p class="fam-note" data-i18n="legend"></p>
+          <div id="families" class="chips" role="group"></div>
+        </div>
+      </div>
+      <div class="list-head"><span id="count"></span></div>
+      <div id="nation-list" role="list"></div>
+    </section>
+
+    <section id="detail-view" hidden>
+      <div class="detail-bar">
+        <button id="back" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg><span data-i18n="back"></span></button>
+        <nav id="detail-nav" aria-label="Sekce"></nav>
+      </div>
+      <article id="detail"></article>
+    </section>
+
+    <footer class="side-foot">
+      <button id="about-btn" class="link-btn" type="button" data-i18n="aboutBtn"></button>
+    </footer>
+  </aside>
+
+  <button id="sidebar-toggle" type="button" aria-label="Menu" aria-controls="sidebar">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-i18n="sideBtn"></span>
+  </button>
+
+  <main>
+    <div id="map"></div>
+
+    <div id="layers" class="panel">
+      <button id="layers-btn" type="button" aria-expanded="false" aria-controls="layers-body">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="m2 13 10 5 10-5"/><path d="m2 17.5 10 5 10-5" opacity=".55"/></svg>
+        <span data-i18n="layers"></span><span class="caret" aria-hidden="true">▾</span>
+      </button>
+      <div id="layers-body">
+        <label><input type="checkbox" id="lyr-territories" checked> <span data-i18n="lyrTerritories"></span></label>
+        <label><input type="checkbox" id="lyr-labels" checked> <span data-i18n="lyrLabels"></span></label>
+        <label><input type="checkbox" id="lyr-borders"> <span data-i18n="lyrBorders"></span></label>
+        <label><input type="checkbox" id="lyr-res-us"> <span data-i18n="lyrResUs"></span></label>
+        <label><input type="checkbox" id="lyr-res-ca"> <span data-i18n="lyrResCa"></span></label>
+        <label id="lyr-nl-wrap" hidden><input type="checkbox" id="lyr-nl"> <span data-i18n="lyrNl"></span></label>
+      </div>
+    </div>
+
+    <div id="music" class="panel" hidden>
+      <button id="music-btn" type="button" aria-haspopup="true" aria-expanded="false"></button>
+      <ul id="music-menu" hidden></ul>
+    </div>
+
+    <div id="lang" class="panel">
+      <button id="lang-btn" type="button" aria-haspopup="true" aria-expanded="false"></button>
+      <ul id="lang-menu" hidden></ul>
+    </div>
+
+    <div id="help" class="panel">
+      <button id="help-btn" type="button" aria-haspopup="dialog">?</button>
+    </div>
+
+    <div id="banner" class="panel" hidden></div>
+
+    <div id="timeline" class="panel">
+      <button id="play" type="button">▶</button>
+      <div class="year-box">
+        <output id="year-out" for="year"></output>
+        <span id="year-note"></span>
+      </div>
+      <div class="slider-wrap">
+        <div id="marks"></div>
+        <input id="year" type="range" min="1000" max="2025" step="1" value="1600">
+        <div id="eras"></div>
+        <div id="ticks-minor" aria-hidden="true"></div>
+        <div id="ticks" aria-hidden="true"></div>
+      </div>
+      <div class="tl-side">
+        <button id="speed" type="button" class="speed"></button>
+        <label class="check all"><input type="checkbox" id="all-periods"> <span data-i18n="allPeriods"></span></label>
+      </div>
+    </div>
+
+    <div id="toast" role="status" aria-live="polite" hidden></div>
+  </main>
+
+  <!-- úvodní obrazovka: béžové pozadí přes celé okno a tlačítko; prohlížeče pustí zvuk až po kliknutí -->
+  <div id="intro">
+    <img class="intro-bg" src="media/intro-bg.webp" alt="">
+    <h1 class="intro-title" id="intro-title">Native <br class="br">Land</h1>
+    <!-- hory a les bez oblohy: leží nad nápisem, takže vrcholky překrývají jeho spodní část -->
+    <img class="intro-fg" src="media/intro-fg.webp" alt="">
+    <div class="intro-cta">
+      <p class="intro-sub" data-i18n="tagline"></p>
+      <button id="intro-go" type="button" data-i18n="enter"></button>
+    </div>
+  </div>
+  <!-- orel v pohledu shora: tělo a dvě křídla jako samostatné vrstvy (stejně velké obrázky) -->
+  <div id="eagle" aria-hidden="true" hidden>
+    <div class="eagle-inner">
+      <img class="e-wing e-up" src="media/eagle-top-wing-up.webp" alt="">
+      <img class="e-wing e-down" src="media/eagle-top-wing-down.webp" alt="">
+      <img class="e-body" src="media/eagle-top-body.webp" alt="">
+    </div>
+  </div>
+
+  <!-- zvětšená vlajka: zakryje skoro celé okno, okraje aplikace zůstanou vidět -->
+  <div id="flag-zoom" hidden>
+    <button type="button" class="close" aria-label="×">×</button>
+    <figure>
+      <img alt="">
+      <figcaption><b class="fz-title"></b><span class="fz-cap"></span></figcaption>
+    </figure>
+  </div>
+
+  <!-- průvodce pro nové uživatele: ztmaví okolí a postupně zvýrazní ovládací prvky -->
+  <div id="tour" hidden>
+    <div class="tour-hole"></div>
+    <div class="tour-card" role="dialog" aria-modal="true" aria-labelledby="tour-title">
+      <p class="tour-step"></p>
+      <h3 id="tour-title"></h3>
+      <p class="tour-text"></p>
+      <div class="tour-actions">
+        <span class="tour-dots" aria-hidden="true"></span>
+        <button type="button" class="tour-skip"></button>
+        <button type="button" class="tour-prev"></button>
+        <button type="button" class="tour-next"></button>
+      </div>
+    </div>
+  </div>
+
+  <dialog id="help-dlg" class="sheet">
+    <form method="dialog"><button class="close" aria-label="×">×</button></form>
+    <h2 data-i18n="helpTitle"></h2>
+    <div id="help-body"></div>
+    <div class="help-actions">
+      <button type="button" id="tour-start" class="btn-primary" data-i18n="tourStart"></button>
+      <button type="button" id="help-about" class="btn-ghost" data-i18n="aboutBtn"></button>
+    </div>
+  </dialog>
+
+  <dialog id="about" class="sheet">
+    <form method="dialog"><button class="close" aria-label="×">×</button></form>
+    <h2 data-i18n="aboutTitle"></h2>
+    <div id="about-body"></div>
+    <h3 data-i18n="sourcesTitle"></h3>
+    <ul id="sources"></ul>
+    <p class="muted" data-i18n="aboutTerm"></p>
+  </dialog>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="i18n.js?v=21"></script>
+  <script src="app.js?v=21"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+ "name": "Native Land",
+ "short_name": "Native Land",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#1b2a4a",
+ "theme_color": "#1b2a4a",
+ "lang": "cs",
+ "icons": [
+  {
+   "src": "media/apple-touch-icon.png",
+   "sizes": "180x180",
+   "type": "image/png"
+  },
+  {
+   "src": "media/favicon.png",
+   "type": "image/png",
+   "sizes": "64x64"
+  }
+ ]
+}
