@@ -407,12 +407,13 @@ kbd { font: 600 12px var(--sans); background: #fff; border: 1px solid var(--line
   main { position: absolute; inset: 0; }
   #layers { font-size: 12.5px; max-width: 220px; }
   /* úzký displej: nahoře tlačítko, rok a volby, pod nimi osa přes celou šířku */
-  #timeline { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "play year side" "slider slider slider"; gap: 0 10px; padding: 8px 10px 4px; }
+  /* telefon: nahoře rychlost a „všechna období“, pod nimi tlačítko s rokem a celým názvem období, dole osa */
+  #timeline { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "side side" "play year" "slider slider"; gap: 0 10px; padding: 6px 10px 4px; }
   #play { grid-area: play; }
-  .year-box { grid-area: year; min-width: 0; }
+  .year-box { grid-area: year; min-width: 0; padding-bottom: 18px; }   /* místo pro popisek události nad osou */
   .slider-wrap { grid-area: slider; }
   #year-out { font-size: 24px; }
-  #year-note { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #year-note { display: block; white-space: normal; overflow: visible; line-height: 1.25; }
   #ticks span.half { display: none; }
   #ticks span.odd, #ticks span.end { display: none; }
   #ticks-minor i:not(.c):not(.h) { display: none; }
@@ -599,5 +600,46 @@ kbd { font: 600 12px var(--sans); background: #fff; border: 1px solid var(--line
 .terr-chart-ticks { position: relative; height: 16px; margin-bottom: 8px; font-size: 10.5px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .terr-chart-ticks span { position: absolute; transform: translateX(-50%); top: 2px; }
 .terr-chart-ticks span:first-child { transform: none; } .terr-chart-ticks span:last-child { transform: translateX(-100%); }
-@media (max-width: 820px) { .tl-side { grid-area: side; flex-direction: row; align-items: center; gap: 10px; } #toast { font-size: 13px; } }
+@media (max-width: 820px) {
+  .tl-side { grid-area: side; flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; padding: 0 2px 6px; margin-bottom: 4px; border-bottom: 1px solid var(--line); }
+  .speed { min-height: 32px; padding: 4px 14px; font-size: 13px; }
+  #timeline .tl-side .check.all { min-height: 32px; display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; }
+  #timeline .tl-side .check.all input { width: 18px; height: 18px; }
+  #toast { font-size: 13px; }
+}
 #ticks.dense span.half { display: none; }
+
+/* telefon: lišta pro procházení území vybraného národa nad mapou */
+#tbar { display: none; }
+.tb-show { display: none; }
+@media (max-width: 820px) {
+  #tbar:not([hidden]) {
+    display: block; position: absolute; top: 60px; left: 10px; right: 10px; z-index: 1100;
+    padding: 6px 6px 8px; border-radius: 14px; border-left: 5px solid var(--c, var(--accent));
+    animation: tb-in .25s ease;
+  }
+  @keyframes tb-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  .tb-head { display: flex; align-items: center; gap: 4px; }
+  .tb-nation { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; border: 0; background: none; padding: 6px 8px; text-align: left; font: inherit; color: var(--ink); cursor: pointer; border-radius: 8px; }
+  .tb-nation i { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--accent)); }
+  .tb-nation b { font-family: var(--display); font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tb-nation span { margin-left: auto; flex: none; font-size: 12.5px; font-weight: 600; color: var(--accent); }
+  .tb-x { flex: none; width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; font-size: 24px; line-height: 1; color: var(--ink-2); cursor: pointer; }
+  .tb-row { display: flex; align-items: center; gap: 6px; }
+  .tb-arrow { flex: none; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line); background: var(--paper); font-size: 28px; line-height: 1; color: var(--ink); cursor: pointer; }
+  .tb-arrow:active { background: var(--accent-soft); }
+  .tb-arrow:disabled { opacity: .35; }
+  .tb-terr { flex: 1; min-width: 0; display: grid; gap: 2px; padding: 0 4px; }
+  .tb-terr strong { font-size: 14.5px; line-height: 1.25; }
+  .tb-terr span { font-size: 12px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .tb-count { flex: none; font-size: 12px; font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .tb-show {
+    display: inline-flex; align-items: center; gap: 8px; margin: 0 0 12px; padding: 9px 14px; min-height: 40px;
+    border-radius: 999px; border: 0; background: var(--navy); color: #fff; font: 600 14px var(--sans); cursor: pointer;
+  }
+  .tb-show svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
+  /* osa a lišta s územím se nesmí překrývat s Columbovou kartou */
+  body:has(#tbar:not([hidden])) #banner { display: none; }
+  body:has(#tbar:not([hidden])) .leaflet-control-zoom { display: none; }   /* pod lištou; na telefonu se přibližuje prsty */
+}
+@media (max-width: 820px) and (prefers-reduced-motion: reduce) { #tbar:not([hidden]) { animation: none; } }

@@ -387,6 +387,7 @@
       </dl>
       <p class="d-text">${esc(nField(n, 'text'))}</p>
       <h3 id="d-terr">${T.hTerr}</h3>
+      ${n.territories.length ? `<button type="button" class="tb-show" data-tbshow="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg>${T.tbShow}</button>` : ''}
       ${terrChart(n)}
       <ul class="terr">${n.territories.map((t, i) =>
         `<li class="${t.act && !state.all ? 'active' : ''}"><button type="button" data-t="${i}">
@@ -415,13 +416,74 @@
   });
   $('detail').addEventListener('click', (e) => {
     const b = e.target.closest('button[data-t]'); if (!b) return;
-    const t = byId.get(state.selected).territories[+b.dataset.t];
+    if (isPhone()) { openTbar(+b.dataset.t); return; }
+    showTerr(+b.dataset.t);
+  });
+  $('detail').addEventListener('click', (e) => { if (e.target.closest('[data-tbshow]')) openTbar(firstTerr()); });
+
+  /* ---------- telefon: procházení území nad mapou ----------
+     Menu by zakrývalo mapu, proto se při klepnutí na území zavře a nahoře nad mapou zůstane lišta
+     s názvem území, šipkami na předchozí / další území a tlačítkem zpět do detailu národa. */
+  const isPhone = () => matchMedia('(max-width: 820px)').matches;
+  let tbarIdx = null;
+  // území ukázat na mapě; pokud v nastaveném roce neexistuje, posunout čas doprostřed jeho období
+  function showTerr(i) {
+    const t = byId.get(state.selected).territories[i];
     if (!isActive(t, state.year)) {
       stop();
       const from = Math.max(YEAR_MIN, t.from ?? YEAR_MIN), to = Math.min(YEAR_MAX, (t.to ?? YEAR_MAX + 1) - 1);
       setYear(Math.round((from + to) / 2));
     }
     flyTo([t]);
+  }
+  // první území, které je v nastaveném roce na mapě (jinak první v pořadí)
+  function firstTerr() {
+    const ts = byId.get(state.selected).territories, i = ts.findIndex((t) => isActive(t, state.year));
+    return Math.max(0, i);
+  }
+  function renderTbar() {
+    const n = state.selected && byId.get(state.selected), el = $('tbar');
+    if (!n || tbarIdx === null) { el.hidden = true; return; }
+    const ts = n.territories, t = ts[tbarIdx], k = ts.length;
+    el.style.setProperty('--c', n.color);
+    el.innerHTML = `
+      <div class="tb-head">
+        <button type="button" class="tb-nation" data-tb="menu" title="${esc(T.tbMenu)}"><i></i><b>${esc(nName(n))}</b><span>${esc(T.tbMenu)} ›</span></button>
+        <button type="button" class="tb-x" data-tb="close" aria-label="${esc(T.tbClose)}">×</button>
+      </div>
+      <div class="tb-row">
+        <button type="button" class="tb-arrow" data-tb="prev" aria-label="${esc(T.tbPrev)}" ${k < 2 ? 'disabled' : ''}>‹</button>
+        <div class="tb-terr"><strong>${esc(tLabel(t))}</strong><span>${esc(T.kind[t.kind] || '')}${T.kind[t.kind] ? ' · ' : ''}${yearsLabel(t)}</span></div>
+        <span class="tb-count">${tbarIdx + 1}/${k}</span>
+        <button type="button" class="tb-arrow" data-tb="next" aria-label="${esc(T.tbNext)}" ${k < 2 ? 'disabled' : ''}>›</button>
+      </div>`;
+    el.hidden = false;
+  }
+  function openTbar(i) {
+    tbarIdx = i;
+    if (document.body.classList.contains('side-open')) $('sidebar-toggle').click();
+    renderTbar();
+    // výřez mapy počítá s lištou nahoře, proto až po jejím vykreslení
+    requestAnimationFrame(() => showTerr(i));
+  }
+  function closeTbar() { tbarIdx = null; $('tbar').hidden = true; }
+  $('tbar').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-tb]'); if (!b) return;
+    e.stopPropagation();
+    const k = byId.get(state.selected).territories.length;
+    if (b.dataset.tb === 'prev' || b.dataset.tb === 'next') {
+      tbarIdx = (tbarIdx + (b.dataset.tb === 'next' ? 1 : -1) + k) % k;
+      renderTbar(); showTerr(tbarIdx);
+    } else if (b.dataset.tb === 'menu') { closeTbar(); if (!document.body.classList.contains('side-open')) $('sidebar-toggle').click(); }
+    else closeTbar();
+  });
+  // přejetí prstem po liště doleva / doprava = další / předchozí území
+  let tbX = null;
+  $('tbar').addEventListener('touchstart', (e) => { tbX = e.touches[0].clientX; }, { passive: true });
+  $('tbar').addEventListener('touchend', (e) => {
+    if (tbX === null || tbarIdx === null) return;
+    const dx = e.changedTouches[0].clientX - tbX; tbX = null;
+    if (Math.abs(dx) > 50) $('tbar').querySelector(`[data-tb="${dx < 0 ? 'next' : 'prev'}"]`)?.click();
   });
   $('back').addEventListener('click', () => select(null));
   document.querySelector('main').addEventListener('click', (e) => {
@@ -454,10 +516,14 @@
     if (!ts.length) return;
     const b = L.latLngBounds([]);
     ts.forEach((t) => b.extend(t.bounds));
-    map.flyToBounds(b, { padding: [70, 70], maxZoom: 7, duration: 0.7 });
+    // telefon: nahoře lišta s územím (nebo tlačítka), dole časová osa – území musí být vidět mezi nimi
+    const tb = $('tbar'), top = isPhone() ? (tb.hidden ? 64 : tb.offsetTop + tb.offsetHeight + 16) : 70;
+    const bottom = isPhone() ? innerHeight - Math.min($('timeline').getBoundingClientRect().top, $('layers').getBoundingClientRect().top) + 16 : 70;
+    map.flyToBounds(b, { paddingTopLeft: [isPhone() ? 24 : 70, top], paddingBottomRight: [isPhone() ? 24 : 70, bottom], maxZoom: 7, duration: 0.7 });
   }
 
   function select(id, opts = {}) {
+    if ((id || null) !== state.selected || !id) closeTbar();
     state.selected = id && byId.has(id) ? id : null;
     if (state.selected) {
       const n = byId.get(state.selected);
@@ -1071,6 +1137,7 @@
   }
   function startTour(opts = {}) {
     closeFlag(); closeMenu(); stop(); if (sailing) sailing.cancel();
+    closeTbar();
     if (document.body.classList.contains('side-open') && matchMedia('(max-width: 820px)').matches) $('sidebar-toggle').click();
     tour = { i: 0, first: !!opts.first, then: opts.then };
     const el = $('tour'); el.hidden = false;
@@ -1111,6 +1178,7 @@
   new MutationObserver(syncSideBtn).observe(document.body, { attributes: true, attributeFilter: ['class'] });
   $('sidebar-toggle').addEventListener('click', () => {
     const open = !document.body.classList.contains('side-open');
+    if (open) closeTbar();
     document.body.classList.toggle('side-open', open); store.set('sideOpen', open ? '1' : '0');
   });
   $('sidebar').addEventListener('transitionend', (e) => { if (e.target === $('sidebar')) map.invalidateSize({ pan: false }); });
